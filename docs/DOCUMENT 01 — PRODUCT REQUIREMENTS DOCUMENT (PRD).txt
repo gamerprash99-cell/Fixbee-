@@ -1,0 +1,505 @@
+DOCUMENT 01 — PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+App Name
+
+FixBee
+
+---
+
+Tagline
+
+Repair. Protect. Upgrade.
+
+---
+
+Product Overview
+
+FixBee is a premium device-care platform that helps users repair smartphones, purchase accessories, track repairs in real time, manage device history, and protect their devices through a single trusted ecosystem.
+
+FixBee aims to become India's most trusted platform for device ownership and maintenance.
+
+---
+
+Problem Statement
+
+Millions of smartphone users face challenges when repairing and maintaining their devices.
+
+Common problems include:
+
+• Untrusted local repair shops
+
+• Unclear pricing
+
+• Fake spare parts
+
+• No repair tracking
+
+• No centralized repair history
+
+• Difficulty finding compatible accessories
+
+• No digital device records
+
+Users spend thousands on smartphones but have no trusted platform to manage the complete lifecycle of their devices.
+
+---
+
+Solution
+
+FixBee provides a complete device-care ecosystem where users can:
+
+• Book trusted repairs
+
+• Track repair progress live
+
+• Buy accessories
+
+• Store device information
+
+• Maintain repair history
+
+• Purchase protection plans
+
+• Get customer support
+
+All from one mobile application.
+
+---
+
+Core Value Proposition
+
+FixBee combines:
+
+• Device Repair
+
+• Accessories Shopping
+
+• Repair Tracking
+
+• Device Vault
+
+• Protection Plans
+
+• Support Services
+
+into a single platform.
+
+Unlike traditional repair shops or online stores, FixBee manages the entire device ownership journey.
+
+---
+
+Target Users
+
+Primary Users
+
+Smartphone users aged 18–45.
+
+Students, professionals, gamers, creators, and business users who rely heavily on their devices and want trusted repair and support services.
+
+---
+
+Secondary Users
+
+Small businesses, offices, educational institutions, and organizations managing multiple devices.
+
+---
+
+Must-Have Features (Version 1)
+
+Authentication
+
+Email Login
+
+Google Login
+
+User Profile
+
+Secure Authentication
+
+---
+
+Device Vault
+
+Add Device
+
+Manage Devices
+
+View Device Information
+
+View Warranty Status
+
+View Repair History
+
+---
+
+Repair Services
+
+Repair Booking
+
+Brand Selection
+
+Device Model Selection
+
+Issue Selection
+
+Price Estimation
+
+Pickup Request
+
+Address Management
+
+Repair Tracking
+
+---
+
+Repair Tracking
+
+Request Created
+
+Technician Assigned
+
+Device Picked Up
+
+Repair Started
+
+Quality Check
+
+Ready For Delivery
+
+Delivered
+
+---
+
+Accessories Store
+
+Product Categories
+
+Product Listing
+
+Product Details
+
+Cart
+
+Checkout
+
+Wishlist
+
+Search
+
+Order Tracking
+
+---
+
+Payments
+
+Razorpay Integration
+
+UPI
+
+Cards
+
+Net Banking
+
+Wallets
+
+Payment Tracking
+
+---
+
+Orders
+
+Repair Orders
+
+Store Orders
+
+Order History
+
+Status Tracking
+
+---
+
+Support
+
+FAQ
+
+Support Tickets
+
+Chat Support
+
+Call Support
+
+---
+
+Admin Panel
+
+Dashboard
+
+Users
+
+Orders
+
+Products
+
+Technicians
+
+Payments
+
+Analytics
+
+---
+
+Technician Panel
+
+Assigned Jobs
+
+Job Details
+
+Status Updates
+
+Upload Proof
+
+Complete Repair
+
+Earnings
+
+---
+
+Nice-to-Have Features (Version 2)
+
+Device Health Monitoring
+
+AI Device Diagnostics
+
+Protection Plans
+
+Extended Warranty
+
+Subscription Membership
+
+Refurbished Marketplace
+
+Buy/Sell Devices
+
+Laptop Repair
+
+Tablet Repair
+
+Smart Device Repair
+
+Real-Time Technician Tracking
+
+Predictive Maintenance
+
+Trade-In Programs
+
+Device Insurance
+
+---
+
+Unique Features
+
+Device Vault
+
+A digital record of every device owned by the user.
+
+Stores:
+
+Brand
+
+Model
+
+Purchase Date
+
+Warranty
+
+Repair History
+
+Protection Plans
+
+Accessories
+
+---
+
+Repair History
+
+A complete medical record system for devices.
+
+Stores:
+
+Repair Date
+
+Issue
+
+Cost
+
+Technician
+
+Warranty Information
+
+Photos
+
+---
+
+FixBee Care
+
+Premium membership program.
+
+Benefits:
+
+Priority Support
+
+Repair Discounts
+
+Exclusive Offers
+
+Extended Protection
+
+---
+
+User Stories
+
+Customer
+
+As a customer, I want to book a repair so that I can fix my device easily.
+
+As a customer, I want to track repairs so that I know the status of my device.
+
+As a customer, I want to save my devices so that I can manage warranties and service history.
+
+As a customer, I want to buy compatible accessories so that I avoid incorrect purchases.
+
+As a customer, I want support so that I can resolve issues quickly.
+
+---
+
+Technician
+
+As a technician, I want to receive assigned jobs so that I can manage my workload.
+
+As a technician, I want to upload proof and updates so that customers can trust the repair process.
+
+---
+
+Admin
+
+As an admin, I want to manage users, products, orders, and technicians so that I can operate the platform efficiently.
+
+---
+
+Out of Scope (Version 1)
+
+Laptop Repairs
+
+Tablet Repairs
+
+Insurance Products
+
+Refurbished Marketplace
+
+AI Diagnostics
+
+International Expansion
+
+Multi-language Support
+
+Live Technician GPS Tracking
+
+Advanced Membership Programs
+
+Corporate Device Management
+
+---
+
+Business Model
+
+Revenue Source 1
+
+Repair Service Commission
+
+---
+
+Revenue Source 2
+
+Accessories Sales Margin
+
+---
+
+Revenue Source 3
+
+FixBee Care Membership
+
+(Future)
+
+---
+
+Revenue Source 4
+
+Protection Plans
+
+(Future)
+
+---
+
+Success Metrics
+
+Launch Metrics
+
+1,000 App Downloads
+
+100+ Registered Users
+
+50+ Repair Bookings
+
+50+ Store Orders
+
+---
+
+Growth Metrics
+
+10,000+ Users
+
+1,000+ Monthly Repairs
+
+500+ Monthly Store Orders
+
+4.5+ App Rating
+
+70% User Retention
+
+---
+
+Product Metrics
+
+Average Booking Time < 3 Minutes
+
+Customer Satisfaction > 90%
+
+Support Response Time < 10 Minutes
+
+Order Completion Rate > 95%
+
+---
+
+Long-Term Vision
+
+FixBee will become India's most trusted Device Care Ecosystem.
+
+The platform will manage every stage of device ownership:
+
+Repair
+
+Protection
+
+Accessories
+
+Support
+
+Upgrade
+
+Trade-In
+
+Refurbishment
+
+Device Lifecycle Management
+
+The goal is to become the default platform Indians use to care for their devices.

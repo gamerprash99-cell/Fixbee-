@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>BeeCare+ Membership | FixBee</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d7e3ff",
+                        "on-surface-variant": "#4d4732",
+                        "surface": "#f8f9ff",
+                        "inverse-primary": "#e9c400",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-error-container": "#93000a",
+                        "primary": "#705d00",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#e9c400",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-high": "#dce9ff",
+                        "surface-tint": "#705d00",
+                        "on-primary-fixed-variant": "#544600",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary": "#565e74",
+                        "on-tertiary-fixed": "#131b2e",
+                        "primary-fixed": "#ffe16d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#221b00",
+                        "on-tertiary-container": "#575e75",
+                        "on-surface": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#ffd700",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-background": "#0b1c30",
+                        "tertiary-fixed": "#dae2fd",
+                        "secondary": "#005cba",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#d2d9f4",
+                        "on-secondary-fixed-variant": "#00458e",
+                        "on-secondary-container": "#002d61",
+                        "secondary-container": "#5095fe",
+                        "inverse-surface": "#213145",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d3e4fe",
+                        "outline": "#7e775f",
+                        "outline-variant": "#d0c6ab",
+                        "on-primary-container": "#705e00",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "container-max": "1440px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "technical-data": ["JetBrains Mono"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "technical-data": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-premium {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+        .gold-shimmer {
+            background: linear-gradient(135deg, #ffd700 0%, #e9c400 50%, #705d00 100%);
+        }
+        .dark-mesh {
+            background-color: #0b1c30;
+            background-image: radial-gradient(at 0% 0%, rgba(112, 93, 0, 0.15) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(0, 92, 186, 0.1) 0px, transparent 50%);
+        }
+        .premium-card-perspective {
+            perspective: 1000px;
+        }
+        .premium-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg overflow-x-hidden">
+<!-- Top AppBar (From JSON) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">BeeCare+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary active:scale-95 transition-transform" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</header>
+<main class="pt-16 pb-32">
+<!-- Hero Section -->
+<section class="dark-mesh min-h-[70vh] flex flex-col items-center justify-center text-center px-margin-mobile pt-12 pb-20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
+<img alt="BeeCare Logo" class="w-full h-full object-contain filter grayscale invert" src="https://lh3.googleusercontent.com/aida/ADBb0uiLqUN6LrK8XrvRRjbvmR-nX7CFsHob2s7dZBYdU3ZMeJlzbu7OYIDrHiVrsUWYOqHSvcmgD9Lqh2AWnjR9A6Jmv1a-tVDriCvEnLQS-LXyGdAsm3gTNzElg7oqlIiDmODsf7fnZvvTqiOA4SLu0abS_K6Dh12upal0luvN02h5VfcCQFWNY0I-r5GY3V3X2WdRyahZT8s2kQvpS3nrloHU58Os-HYkAfU0lgqK-Px6bX0dPDkFZBaJC_o"/>
+</div>
+<div class="z-10 max-w-2xl mx-auto">
+<span class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-1 rounded-full inline-block mb-6 tracking-widest">EXCLUSIVE ACCESS</span>
+<h1 class="font-display-lg text-display-lg text-white mb-6 leading-tight">
+                    Upgrade to <span class="text-primary-container">BeeCare+</span>
+</h1>
+<p class="text-secondary-fixed font-body-lg mb-12 max-w-lg mx-auto opacity-80">
+                    The ultimate protection plan for your digital life. Zero fees, priority care, and complete peace of mind.
+                </p>
+<!-- Rotating Membership Card -->
+<div class="premium-card-perspective mx-auto mb-12">
+<div class="premium-card-inner w-80 h-48 rounded-2xl gold-shimmer shadow-2xl relative flex flex-col justify-between p-6 text-left transform rotate-y-12" id="hero-card">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+<img alt="FixBee Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiLqUN6LrK8XrvRRjbvmR-nX7CFsHob2s7dZBYdU3ZMeJlzbu7OYIDrHiVrsUWYOqHSvcmgD9Lqh2AWnjR9A6Jmv1a-tVDriCvEnLQS-LXyGdAsm3gTNzElg7oqlIiDmODsf7fnZvvTqiOA4SLu0abS_K6Dh12upal0luvN02h5VfcCQFWNY0I-r5GY3V3X2WdRyahZT8s2kQvpS3nrloHU58Os-HYkAfU0lgqK-Px6bX0dPDkFZBaJC_o"/>
+</div>
+<span class="material-symbols-outlined text-white/80" data-icon="contactless">contactless</span>
+</div>
+<div class="space-y-1">
+<div class="text-white/60 font-label-caps text-[10px] tracking-[0.2em]">ELITE MEMBER</div>
+<div class="text-white font-title-md tracking-wider">FIXBEE USER</div>
+</div>
+<div class="absolute right-6 bottom-6 flex flex-col items-end">
+<div class="text-white/80 font-technical-data text-[12px]">BEE-7729-CARE</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Savings Calculator -->
+<section class="px-margin-mobile -mt-16 z-20 relative">
+<div class="bg-white rounded-3xl p-8 shadow-xl border border-outline-variant/20 max-w-md mx-auto">
+<h3 class="font-title-md text-title-md mb-6 text-center">See your savings</h3>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-on-surface-variant">Estimated Screen Repair Cost</label>
+<div class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl border border-outline-variant">
+<span class="font-headline-lg-mobile text-on-surface">₹12,499</span>
+<div class="text-right">
+<div class="text-error font-label-caps text-[10px]">WITHOUT BEECARE</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center py-2">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+</div>
+<div class="flex items-center justify-between bg-primary-container/20 p-4 rounded-xl border border-primary-container">
+<div>
+<span class="font-headline-lg-mobile text-primary">₹0</span>
+<p class="text-body-sm text-primary font-bold">Included Coverage</p>
+</div>
+<div class="text-right">
+<div class="text-primary font-label-caps text-[10px]">WITH BEECARE+</div>
+</div>
+</div>
+<div class="bg-on-surface text-white p-4 rounded-xl flex items-center justify-between">
+<span class="font-body-sm">You Save</span>
+<span class="font-headline-lg-mobile text-primary-fixed">₹12,499!</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Grid -->
+<section class="px-margin-mobile py-20">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg mb-4">Elite Benefits</h2>
+<p class="text-on-surface-variant font-body-lg">Designed for those who demand the best care.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-highest p-6 rounded-3xl border border-outline-variant/30 flex flex-col gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<h4 class="font-title-md text-title-md leading-snug">₹0 Service Fees</h4>
+<p class="text-body-sm text-on-surface-variant">Unlimited free technician visits at home.</p>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-3xl border border-outline-variant/30 flex flex-col gap-4">
+<div class="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="electric_bolt">electric_bolt</span>
+</div>
+<h4 class="font-title-md text-title-md leading-snug">15-Min Pickup</h4>
+<p class="text-body-sm text-on-surface-variant">Priority queue for device retrieval.</p>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-3xl border border-outline-variant/30 flex flex-col gap-4">
+<div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="screen_lock_portrait">screen_lock_portrait</span>
+</div>
+<h4 class="font-title-md text-title-md leading-snug">Free Screen Protection</h4>
+<p class="text-body-sm text-on-surface-variant">Complimentary 1-year shield application.</p>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-3xl border border-outline-variant/30 flex flex-col gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<h4 class="font-title-md text-title-md leading-snug">Expert Concierge</h4>
+<p class="text-body-sm text-on-surface-variant">Personalized tech advice 24/7 via chat.</p>
+</div>
+</div>
+</section>
+<!-- Membership Tiers -->
+<section class="px-margin-mobile py-12 bg-inverse-surface text-white rounded-t-[40px]">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg mb-4">Choose Your Plan</h2>
+</div>
+<div class="flex flex-col gap-8">
+<!-- Essential -->
+<div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile mb-1">Essential</h3>
+<p class="text-white/60 font-body-sm">Standard protection</p>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-white">₹499</span>
+<p class="text-white/40 text-[12px]">/year</p>
+</div>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3 text-white/80">
+<span class="material-symbols-outlined text-primary-fixed text-xl" data-icon="check_circle">check_circle</span>
+<span class="text-body-sm">2 Service Fee Waivers</span>
+</li>
+<li class="flex items-center gap-3 text-white/80">
+<span class="material-symbols-outlined text-primary-fixed text-xl" data-icon="check_circle">check_circle</span>
+<span class="text-body-sm">Standard Repair Pickup</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl border border-white/20 font-title-md text-title-md active:scale-95 transition-all">Select Essential</button>
+</div>
+<!-- Premium Elite -->
+<div class="relative">
+<div class="absolute -top-4 right-8 bg-primary text-on-primary px-4 py-1 rounded-full font-label-caps text-[10px] z-10 shadow-lg">BEST VALUE</div>
+<div class="bg-white rounded-3xl p-8 border-2 border-primary shadow-[0_0_40px_rgba(255,215,0,0.2)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Premium Elite</h3>
+<p class="text-on-surface-variant font-body-sm">The full FixBee experience</p>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-on-surface">₹1,999</span>
+<p class="text-on-surface-variant text-[12px]">/year</p>
+</div>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-semibold">Unlimited Free Service Visits</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-semibold">15-Min Express Pickup</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-semibold">OLED/LCD Screen Warranty</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm font-semibold">Priority Support Concierge</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl gold-shimmer text-on-primary font-title-md text-title-md shadow-lg shadow-primary/20 active:scale-95 transition-all">Unlock Elite Care</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Stats -->
+<section class="py-20 bg-surface-container">
+<div class="px-margin-mobile text-center">
+<div class="mb-12">
+<div class="text-headline-lg font-headline-lg text-primary mb-2">₹14,000+</div>
+<p class="text-on-surface-variant font-label-caps tracking-widest uppercase">Saved by Members Last Year</p>
+</div>
+<div class="overflow-x-auto no-scrollbar flex gap-4 px-margin-mobile">
+<div class="min-w-[280px] bg-white p-6 rounded-3xl border border-outline-variant/30 text-left shadow-sm">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-sm italic text-on-surface-variant mb-4">"The 15-minute pickup is a lifesaver. My phone was back in 4 hours, and I paid zero service fees!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container">
+<img alt="Member" data-alt="A professional headshot of a happy male user in his late 20s, styled in a high-key studio setting with a clean background. He has a genuine smile and is looking directly at the camera, conveying trust and satisfaction. The lighting is soft and modern, reflecting a premium service experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSS577D02Ab8tzCEIuASbBlWxh5nU3i5ApGUyAlWmNC6mm6uXR1wVU6bg0fmaZbc6fbrCqFSu6u-fxuTQsKm78KrxzLfBm0qbpdHmNGLIjEFUws02rfozQf4hWBjH3sXaaDyf5TmS8ZpmqTnnoDiFnG_gAgZDhGS9CVqlnpaZAPTd_TBSIkccFMk34HlNv-YvIf4CMYXZ4TbqqCjvco8Vg-NMsNWkgTUEedrfBRbuKDxp26uj61iIYnY5G84oI4qGveyrTg0eGmwo"/>
+</div>
+<div>
+<div class="font-title-md text-[14px]">Aditya R.</div>
+<div class="text-[12px] text-on-surface-variant opacity-60">Gold Member</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="px-margin-mobile py-20">
+<h2 class="font-headline-lg text-headline-lg mb-8 text-center">Your Questions</h2>
+<div class="space-y-4">
+<details class="group bg-surface rounded-2xl border border-outline-variant/30">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-title-md text-title-md">What devices are covered?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-body-sm">
+                        All smartphones, tablets, and laptops added to your FixBee Vault are eligible for membership benefits.
+                    </div>
+</details>
+<details class="group bg-surface rounded-2xl border border-outline-variant/30">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-title-md text-title-md">Is the screen protection free?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-body-sm">
+                        Yes! Premium Elite members get one complimentary high-grade tempered glass or liquid screen protection application per device per year.
+                    </div>
+</details>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-margin-mobile z-50 bg-gradient-to-t from-background to-transparent pb-10">
+<button class="w-full py-5 rounded-2xl gold-shimmer text-on-primary font-headline-lg-mobile text-headline-lg-mobile shadow-2xl flex items-center justify-center gap-3 active:scale-[0.98] transition-transform">
+<span>Join the Club</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- BottomNavBar (From JSON) -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-50 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-2xl border-t border-outline-variant/20 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center h-20 px-4 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="devices_other">devices_other</span>
+<span class="font-label-caps text-label-caps">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="card_membership">card_membership</span>
+<span class="font-label-caps text-label-caps font-bold">BeeCare+</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the card tilt
+        const card = document.getElementById('hero-card');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Reset transform on mouse leave
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(12deg) rotateX(0deg)`;
+        });
+    </script>
+</body></html>

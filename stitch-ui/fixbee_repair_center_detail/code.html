@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(11, 28, 48, 0.05);
+        }
+        .premium-shadow {
+            box-shadow: 0 20px 40px -15px rgba(112, 93, 0, 0.15);
+        }
+        .live-indicator {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#00458e",
+                        "outline": "#7e775f",
+                        "surface": "#f8f9ff",
+                        "surface-dim": "#cbdbf5",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary-fixed": "#221b00",
+                        "inverse-surface": "#213145",
+                        "inverse-primary": "#e9c400",
+                        "primary-container": "#ffd700",
+                        "secondary": "#005cba",
+                        "primary-fixed-dim": "#e9c400",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#5095fe",
+                        "background": "#f8f9ff",
+                        "on-surface-variant": "#4d4732",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#705e00",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#705d00",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#575e75",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#dae2fd",
+                        "primary": "#705d00",
+                        "on-background": "#0b1c30",
+                        "on-primary-fixed-variant": "#544600",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-secondary-container": "#002d61",
+                        "primary-fixed": "#ffe16d",
+                        "secondary-fixed": "#d7e3ff",
+                        "tertiary-container": "#d2d9f4",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-fixed": "#001b3e",
+                        "outline-variant": "#d0c6ab",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "container-max": "1440px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "technical-data": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "technical-data": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-lg text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline flex justify-between items-center px-gutter py-4">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">FixBee</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed p-2">notifications</span>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed p-2">location_on</span>
+</div>
+</header>
+<main class="pt-16 pb-32 max-w-lg mx-auto md:max-w-container-max md:px-margin-desktop">
+<!-- Hero Image Section -->
+<section class="relative w-full h-72 md:h-96 overflow-hidden md:rounded-xl md:mt-8">
+<img alt="Premium Repair Workshop" class="w-full h-full object-cover" data-alt="A futuristic, high-end electronics repair laboratory with clinical precision. Technicians in specialized anti-static gear work under bright, cool-toned overhead LED lighting. The space features glass partitions, sleek stainless steel workbenches, and advanced microscopic diagnostic equipment. The overall aesthetic is ultra-modern and premium, with a palette of deep blues, metallic silvers, and warm gold accents reflecting a luxurious tech care environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMqbexd1RkP55CXWGMaLZAOX2A4a-ed1vBO0bHgWcuJkXNqBvOZtb8BYhwFtUKKzgwrEnpSglIanK6VmL1AF2rJDxAspwaaLdPEe7SVP_GDxfJD23eODxBS5E-m53mCCm7woetQpSKswoZ2A3NiXrU7MC51BtsrGLWthHbZHDDSKd-2oBwLhEeC0GB9f4k4bhA47YB462reg0hVPx32xkejbSNR6F4DyJk4yX7wx1bn9X9DrP0rqmwNLbKVRRfFtjMqoVI2-qeQoo"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-technical-data text-technical-data text-on-surface">4.9 (1.2k)</span>
+</div>
+</section>
+<!-- Hub Title & Identity -->
+<section class="px-margin-mobile mt-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-2 py-0.5 rounded-sm">PREMIUM HUB</span>
+<span class="text-secondary font-title-md text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified</span> Verified Center
+                    </span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-on-surface">FixBee - Indiranagar Hub</h2>
+<p class="text-on-surface-variant font-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                    80 Feet Rd, Indiranagar, Bengaluru • 2.4 km away
+                </p>
+</div>
+<!-- Quick Action Buttons -->
+<div class="grid grid-cols-3 gap-3 mt-8">
+<button class="flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary">directions</span>
+<span class="font-label-caps text-label-caps text-on-surface">DIRECTIONS</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="font-label-caps text-label-caps text-on-surface">CALL HUB</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-primary-container rounded-xl shadow-md premium-shadow hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-primary-container">calendar_month</span>
+<span class="font-label-caps text-label-caps text-on-primary-container">BOOK VISIT</span>
+</button>
+</div>
+</section>
+<!-- Live Workshop Feed -->
+<section class="px-margin-mobile mt-10">
+<div class="bg-inverse-surface rounded-2xl p-4 overflow-hidden relative">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error live-indicator"></div>
+<span class="font-technical-data text-technical-data text-white">Live: Tech Lab 03</span>
+</div>
+<span class="material-symbols-outlined text-white/50 text-lg">fullscreen</span>
+</div>
+<div class="aspect-video w-full rounded-lg bg-black/40 relative flex items-center justify-center">
+<img alt="Live tech feed" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale" data-alt="A high-definition security camera view of a sterile tech repair station. A technician's gloved hands are visible under a digital microscope, meticulously handling a circuit board. The lighting is focused and clinical. Overlaid are translucent digital data points and a 'LIVE' status indicator, creating a sense of transparency and high-tech expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDthvrtzFbRSsnPqvFSQVjkKQ7yNDwhiiMfg66zpo2Rbq7j71hEQDpNolg0LvP6ISe8N3kSpbatlqvo130ynD91E8uUQANiQYBPp3LqMoKvcgXtPCOBTi0agFzg5l2KJeGNyVQB8lvBzDShq8Ejxbm6y4JeD6BvV26kS-jgql3XgTna7k3HdUQdGuysyYOYFKwiPJ1JC3BKkuWmGpLsILuzAPW3vcq9DzgdPsC5tla3-11y9Zzvb2RrInmvJGcnGWdM-D6yirSFjz8"/>
+<span class="material-symbols-outlined text-white text-5xl opacity-40">play_circle</span>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="px-margin-mobile mt-10">
+<h3 class="font-title-md text-title-md mb-4 text-on-surface">Hub Specialities</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-2xl flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary bg-white w-10 h-10 flex items-center justify-center rounded-lg shadow-sm">visibility</span>
+<div>
+<p class="font-title-md text-sm text-on-surface">Glass-walled Lab</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Watch your device being fixed in real-time.</p>
+</div>
+</div>
+<div class="p-4 bg-secondary-container/20 rounded-2xl flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary bg-white w-10 h-10 flex items-center justify-center rounded-lg shadow-sm">military_tech</span>
+<div>
+<p class="font-title-md text-sm text-on-surface">Certified Techs</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">L3 master technicians with 10+ years exp.</p>
+</div>
+</div>
+<div class="p-4 border border-outline-variant rounded-2xl flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary bg-surface w-10 h-10 flex items-center justify-center rounded-lg">speed</span>
+<div>
+<p class="font-title-md text-sm text-on-surface">Same-day Repair</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">90% of screen &amp; battery jobs done in 4hrs.</p>
+</div>
+</div>
+<div class="p-4 border border-outline-variant rounded-2xl flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary bg-surface w-10 h-10 flex items-center justify-center rounded-lg">coffee</span>
+<div>
+<p class="font-title-md text-sm text-on-surface">Premium Lounge</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">High-speed WiFi &amp; artisanal coffee station.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Map & Location -->
+<section class="px-margin-mobile mt-10">
+<h3 class="font-title-md text-title-md mb-4 text-on-surface">Location</h3>
+<div class="rounded-2xl overflow-hidden border border-outline-variant">
+<div class="h-48 bg-surface-container-highest relative">
+<img alt="Map location" class="w-full h-full object-cover grayscale" data-alt="A stylized, minimal map of Indiranagar, Bengaluru, featuring clean lines and a modern color palette of light grays and soft blues. A prominent gold 'FixBee' pin marks the location at 80 Feet Road. The surrounding neighborhood is rendered with high-end architectural simplicity, emphasizing the premium location of the service center." data-location="Indiranagar, Bengaluru" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx5isJ-7OLQiwtJfhXmaU5NG4V6QPKwPu8VLhR5SdCdnAvBm-mb49LLBYGxUT_8j9a72NqJHNhp2prXUh7YEjg0detQlIrYLpBeFb5bDDLUnaJZg-B65jYhF5nzRr6JWGBbVDo4LUucacr0e7tlaLulktgOc6fK1pWXCz3UxQwLKlySq0gm0LLGsYsQ6ajUONznOt68MMfO6qWmb2ggyDFK-gyFZ7flDMREM_6wVg3y8o0rzAQWWhztNJh6uJk69AdajCH1Xyt1TQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg border-2 border-white animate-bounce">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+</div>
+</div>
+<div class="p-4 bg-white">
+<p class="font-body-lg text-on-surface">No. 492, 80 Feet Road, Near HAL 2nd Stage, Indiranagar, Bengaluru, 560038</p>
+</div>
+</div>
+</section>
+<!-- Operating Hours -->
+<section class="px-margin-mobile mt-10 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Operating Hours</h3>
+<span class="bg-green-100 text-green-700 font-label-caps text-[10px] px-2 py-1 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> OPEN NOW
+                </span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/30 font-body-sm">
+<span class="text-on-surface font-semibold">Monday - Saturday</span>
+<span class="text-on-surface-variant">10:00 AM - 08:30 PM</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/30 font-body-sm">
+<span class="text-on-surface font-semibold">Sunday</span>
+<span class="text-on-surface-variant">11:00 AM - 06:00 PM</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-highest/80 backdrop-blur-xl border-t border-white/10 shadow-lg md:max-w-md md:left-1/2 md:-translate-x-1/2 md:rounded-t-3xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">devices</span>
+<span class="font-label-caps text-label-caps">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">build</span>
+<span class="font-label-caps text-label-caps">Repair</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-caps text-label-caps">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+</nav>
+</body></html>

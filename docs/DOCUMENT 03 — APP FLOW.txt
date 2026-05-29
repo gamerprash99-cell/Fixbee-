@@ -1,0 +1,783 @@
+DOCUMENT 03 — APP FLOW
+
+Navigation & User Journey Map
+
+Product Name
+
+FixBee
+
+Tagline
+
+Repair. Protect. Upgrade.
+
+---
+
+1. APP ENTRY POINTS
+
+First-Time User
+
+Splash Screen
+→ Onboarding
+→ Login / Signup
+→ Create Profile
+→ Add First Device
+→ Home Dashboard
+
+Returning Logged-In User
+
+Splash Screen
+→ Home Dashboard
+
+Logged-Out User
+
+Splash Screen
+→ Login / Signup
+
+Admin User
+
+Login
+→ Admin Dashboard
+
+Technician User
+
+Login
+→ Technician Dashboard
+
+---
+
+2. MAIN CUSTOMER APP NAVIGATION
+
+Navigation Type
+
+Mobile bottom tab navigation with 5 tabs:
+
+1. Home
+2. Repair
+3. Store
+4. Orders
+5. Profile
+
+Global Elements
+
+Top App Bar:
+
+- FixBee logo
+- Location selector
+- Search icon
+- Notification icon
+
+Bottom Navigation:
+
+- Home
+- Repair
+- Store
+- Orders
+- Profile
+
+Back Button:
+
+Used inside nested flows like repair booking, checkout, product details, and tracking.
+
+---
+
+3. CUSTOMER APP SCREEN LIST
+
+Authentication Screens
+
+Splash Screen
+
+Displays FixBee logo and premium brand animation.
+
+Onboarding Screen 1
+
+Message: Repair your device with trusted experts.
+
+Onboarding Screen 2
+
+Message: Buy premium accessories made for your phone.
+
+Onboarding Screen 3
+
+Message: Track every repair step with full transparency.
+
+Login Screen
+
+User can login with email, Google, or phone option.
+
+Signup Screen
+
+User creates a new account.
+
+Forgot Password Screen
+
+User resets password.
+
+Create Profile Screen
+
+User adds name, phone number, and city.
+
+Add First Device Screen
+
+User adds phone brand and model.
+
+---
+
+Main Screens
+
+Home Screen
+
+Main dashboard with quick actions, saved device, repair services, store products, recent orders, and support shortcut.
+
+Repair Screen
+
+Starting point for booking a repair.
+
+Store Screen
+
+Starting point for buying accessories.
+
+Orders Screen
+
+Shows repair and store orders.
+
+Profile Screen
+
+Shows user profile, saved devices, addresses, payment methods, warranty, support, and settings.
+
+---
+
+Repair Flow Screens
+
+Select Brand Screen
+
+User selects phone brand.
+
+Select Model Screen
+
+User selects device model.
+
+Select Issue Screen
+
+User selects repair issue.
+
+Issue Details Screen
+
+User sees issue explanation and optional symptoms.
+
+Price Estimate Screen
+
+Shows estimated repair price, repair time, warranty, and service options.
+
+Service Type Screen
+
+User selects pickup, drop-off, or doorstep repair if available.
+
+Address Selection Screen
+
+User selects or adds address.
+
+Schedule Pickup Screen
+
+User selects date and time slot.
+
+Payment Screen
+
+User chooses payment method.
+
+Booking Review Screen
+
+User reviews device, issue, address, slot, and price.
+
+Booking Success Screen
+
+Shows confirmed repair request.
+
+Repair Tracking Screen
+
+Shows repair timeline and technician status.
+
+---
+
+Store Flow Screens
+
+Store Home Screen
+
+Shows search, categories, deals, recommended products, and compatible accessories.
+
+Category Listing Screen
+
+Shows products under selected category.
+
+Product Listing Screen
+
+Shows filters, sorting, and product cards.
+
+Product Detail Screen
+
+Shows product images, price, compatibility, specs, reviews, add to cart, and buy now.
+
+Cart Screen
+
+Shows selected products, coupon, quantity, and total.
+
+Checkout Screen
+
+Shows address, payment, and order summary.
+
+Store Payment Screen
+
+User completes payment.
+
+Store Order Success Screen
+
+Confirms order.
+
+Store Order Tracking Screen
+
+Shows delivery status.
+
+Wishlist Screen
+
+Shows saved products.
+
+---
+
+Orders Flow Screens
+
+Orders Home Screen
+
+Tabs: All, Repairs, Store Orders, Completed, Cancelled.
+
+Repair Order Detail Screen
+
+Shows device, issue, status, technician, payment, and repair timeline.
+
+Store Order Detail Screen
+
+Shows product, delivery status, payment, and invoice.
+
+Cancel Order Screen
+
+User confirms cancellation if allowed.
+
+---
+
+Profile Flow Screens
+
+Profile Home Screen
+
+Shows user information and account sections.
+
+My Devices Screen
+
+Shows saved devices.
+
+Add Device Screen
+
+User adds device brand, model, purchase date, and warranty details.
+
+Device Detail Screen
+
+Shows device info, repair history, warranty, and protection status.
+
+My Addresses Screen
+
+Shows saved addresses.
+
+Add Address Screen
+
+User adds new address.
+
+Payment Methods Screen
+
+Shows payment options.
+
+Warranty Center Screen
+
+Shows active warranties.
+
+Protection Plans Screen
+
+Shows FixBee Care plans.
+
+Repair History Screen
+
+Shows past repair records.
+
+Support Home Screen
+
+Shows FAQ, chat, call, and ticket options.
+
+Raise Ticket Screen
+
+User submits a support issue.
+
+Settings Screen
+
+Notification, privacy, account, and logout options.
+
+---
+
+4. AUTH FLOW
+
+New User Signup Flow
+
+Splash
+→ Onboarding
+→ Signup
+→ Email Verification
+→ Create Profile
+→ Add First Device
+→ Home
+
+Existing User Login Flow
+
+Splash
+→ Login
+→ Home
+
+Forgot Password Flow
+
+Login
+→ Forgot Password
+→ Enter Email
+→ Reset Link Sent
+→ Login
+
+Logout Flow
+
+Profile
+→ Settings
+→ Logout
+→ Login
+
+---
+
+5. CORE USER JOURNEY 1 — BOOK A REPAIR
+
+Goal: User wants to repair a phone.
+
+Flow:
+
+Home
+→ Tap Repair Device
+→ Select Brand
+→ Select Model
+→ Select Issue
+→ View Price Estimate
+→ Choose Service Type
+→ Select Address
+→ Schedule Pickup
+→ Review Booking
+→ Payment
+→ Booking Success
+→ Repair Tracking
+
+Repair Tracking Timeline:
+
+1. Request Created
+2. Technician Assigned
+3. Device Picked Up
+4. Repair Started
+5. Quality Check
+6. Ready For Delivery
+7. Delivered
+
+Redirect Logic:
+
+After successful booking → Repair Tracking Screen
+After payment failed → Payment Failed Screen
+After cancellation → Orders Screen
+
+---
+
+6. CORE USER JOURNEY 2 — BUY ACCESSORIES
+
+Goal: User wants to buy phone accessories.
+
+Flow:
+
+Home
+→ Tap Store
+→ Store Home
+→ Select Category
+→ Product Listing
+→ Product Detail
+→ Add To Cart
+→ Cart
+→ Checkout
+→ Payment
+→ Order Success
+→ Store Order Tracking
+
+Redirect Logic:
+
+After successful payment → Store Order Tracking
+After cart empty → Store Home
+After payment failed → Retry Payment Screen
+
+---
+
+7. CORE USER JOURNEY 3 — MANAGE DEVICE VAULT
+
+Goal: User wants to manage saved devices.
+
+Flow:
+
+Profile
+→ My Devices
+→ Add Device
+→ Select Brand
+→ Select Model
+→ Add Purchase Date
+→ Add Warranty Details
+→ Save Device
+→ Device Detail
+
+From Device Detail user can:
+
+- Book repair
+- View repair history
+- View warranty
+- Buy compatible accessories
+- Add protection plan
+
+Redirect Logic:
+
+After device saved → Device Detail Screen
+After repair selected → Repair Flow
+After accessories selected → Store Flow
+
+---
+
+8. CORE USER JOURNEY 4 — GET SUPPORT
+
+Goal: User needs help.
+
+Flow:
+
+Home / Profile
+→ Support
+→ Choose Chat / Call / Ticket / FAQ
+
+If Ticket:
+
+Support
+→ Raise Ticket
+→ Add Issue Details
+→ Upload Image
+→ Submit
+→ Ticket Detail Screen
+
+Redirect Logic:
+
+After ticket submit → Ticket Detail Screen
+After ticket resolved → Support History
+
+---
+
+9. ADMIN PANEL APP FLOW
+
+Navigation Type
+
+Desktop sidebar navigation and mobile responsive drawer.
+
+Admin Screens
+
+Dashboard
+Repair Orders
+Store Orders
+Customers
+Technicians
+Products
+Categories
+Payments
+Coupons
+Support Tickets
+Reports
+Analytics
+Settings
+
+Admin Login Flow
+
+Login
+→ Verify Admin Role
+→ Admin Dashboard
+
+If user is not admin:
+
+Login
+→ Access Denied Screen
+
+Admin Core Flow — Manage Repair Order
+
+Admin Dashboard
+→ Repair Orders
+→ Order Detail
+→ Assign Technician
+→ Update Status
+→ Notify Customer
+→ Order Detail Updated
+
+Admin Core Flow — Manage Products
+
+Admin Dashboard
+→ Products
+→ Add Product
+→ Add Images
+→ Set Price
+→ Set Stock
+→ Set Compatibility
+→ Publish Product
+
+---
+
+10. TECHNICIAN PANEL APP FLOW
+
+Navigation Type
+
+Mobile bottom navigation:
+
+Jobs
+Updates
+Earnings
+Profile
+
+Technician Screens
+
+Technician Login
+Technician Dashboard
+Today’s Jobs
+Job Detail
+Update Status
+Upload Proof
+Complete Repair
+Earnings
+Profile
+
+Technician Job Flow
+
+Login
+→ Technician Dashboard
+→ Today’s Jobs
+→ Open Job Detail
+→ Accept Job
+→ Update Status
+→ Upload Before/After Proof
+→ Mark Complete
+→ Earnings Updated
+
+---
+
+11. EMPTY STATES
+
+No Saved Device
+
+Message:
+Add your first device to get repair suggestions and compatible accessories.
+
+Action:
+Add Device
+
+No Orders
+
+Message:
+Your orders will appear here once you book a repair or place a store order.
+
+Action:
+Explore FixBee
+
+Empty Cart
+
+Message:
+Your cart is empty.
+
+Action:
+Shop Accessories
+
+No Repair History
+
+Message:
+No repair history yet. Book your first repair with FixBee.
+
+Action:
+Book Repair
+
+No Support Tickets
+
+Message:
+You have no active support tickets.
+
+Action:
+Raise Ticket
+
+---
+
+12. LOADING STATES
+
+Use premium skeleton loaders for:
+
+Home
+
+Product Listing
+
+Repair Estimate
+
+Orders
+
+Profile
+
+Admin Dashboard
+
+Technician Jobs
+
+Avoid blank white screens.
+
+---
+
+13. ERROR STATES
+
+Network Error
+
+Message:
+Something went wrong. Please check your internet connection and try again.
+
+Action:
+Retry
+
+Payment Failed
+
+Message:
+Payment could not be completed.
+
+Actions:
+Retry Payment
+Choose Another Method
+
+Booking Failed
+
+Message:
+We could not create your repair request.
+
+Actions:
+Try Again
+Contact Support
+
+Product Out of Stock
+
+Message:
+This product is currently unavailable.
+
+Action:
+Notify Me
+
+Access Denied
+
+Message:
+You do not have permission to access this section.
+
+Action:
+Go Back
+
+---
+
+14. MODALS, DRAWERS, AND OVERLAYS
+
+Bottom Sheets
+
+Use for:
+
+Filter products
+
+Sort products
+
+Select service type
+
+Select time slot
+
+Choose payment method
+
+Cancel order reason
+
+Modals
+
+Use for:
+
+Delete confirmation
+
+Logout confirmation
+
+Cancel booking
+
+Payment failure
+
+Support confirmation
+
+Full-Screen Overlays
+
+Use for:
+
+Payment processing
+
+Order success
+
+Booking success
+
+---
+
+15. REDIRECT RULES
+
+After signup → Create Profile
+After profile creation → Add First Device
+After first device added → Home
+After login → Home
+After logout → Login
+After repair booking → Repair Tracking
+After store checkout → Store Order Tracking
+After failed payment → Payment Failed Screen
+After support ticket submission → Ticket Detail
+After admin login → Admin Dashboard
+After technician login → Technician Dashboard
+If non-admin opens admin → Access Denied
+If non-technician opens technician panel → Access Denied
+
+---
+
+16. GLOBAL APP RULES
+
+Customer should never see admin screens.
+
+Customer should never see technician screens.
+
+Technician should only see assigned jobs.
+
+Admin can access full platform.
+
+Every protected screen requires authentication.
+
+Every order must have a status.
+
+Every payment must have a verified backend record.
+
+Every repair status update must create a timeline entry.
+
+Every product order must create an order record.
+
+Every major action should create a notification.
+
+---
+
+17. FINAL EXPERIENCE GOAL
+
+FixBee should feel like one connected product.
+
+The user should move smoothly from:
+
+Device
+→ Repair
+→ Tracking
+→ Store
+→ Protection
+→ Support
+
+The experience should feel premium, trustworthy, fast, and simple.

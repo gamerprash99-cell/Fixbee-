@@ -1,0 +1,685 @@
+DOCUMENT 02 — TECHNICAL REQUIREMENTS DOCUMENT (TRD)
+
+Project Name
+
+FixBee
+
+---
+
+Technical Vision
+
+Build a scalable, production-ready device-care ecosystem capable of supporting:
+
+- Millions of users
+- Repair bookings
+- Accessories marketplace
+- Real-time repair tracking
+- Admin management
+- Technician operations
+- Future subscriptions and protection plans
+
+The architecture must be secure, maintainable, modular, and startup-ready.
+
+---
+
+FRONTEND
+
+Mobile Application
+
+Framework:
+React Native
+
+Development Platform:
+Expo
+
+Language:
+TypeScript
+
+UI Framework:
+NativeWind (Tailwind for React Native)
+
+Navigation:
+React Navigation
+
+State Management:
+Zustand
+
+Form Handling:
+React Hook Form
+
+Validation:
+Zod
+
+Image Handling:
+Expo Image
+
+Storage:
+MMKV Storage
+
+---
+
+Admin Dashboard
+
+Framework:
+Next.js 15
+
+Language:
+TypeScript
+
+Styling:
+Tailwind CSS
+
+UI Components:
+shadcn/ui
+
+State Management:
+Zustand
+
+Data Fetching:
+TanStack Query
+
+Charts:
+Recharts
+
+Tables:
+TanStack Table
+
+---
+
+Technician Portal
+
+Framework:
+React Native
+
+Language:
+TypeScript
+
+Shared Component System:
+Same design system as Customer App
+
+---
+
+BACKEND
+
+Backend Provider:
+Firebase
+
+---
+
+Firebase Services
+
+Firebase Authentication
+
+Firestore Database
+
+Firebase Storage
+
+Firebase Cloud Functions
+
+Firebase Cloud Messaging
+
+Firebase App Check
+
+Firebase Analytics
+
+Firebase Crashlytics
+
+---
+
+DATABASE
+
+Provider:
+Firestore
+
+Database Type:
+NoSQL
+
+Reason:
+
+Fast development
+
+Scalable
+
+Real-time updates
+
+Strong mobile integration
+
+---
+
+AUTHENTICATION
+
+Provider:
+Firebase Authentication
+
+Methods:
+
+Google Login
+
+Email & Password Login
+
+Phone OTP (Phase 2)
+
+Password Reset
+
+Email Verification
+
+Session Persistence
+
+---
+
+USER ROLES
+
+Role: Customer
+
+Permissions:
+
+Manage own profile
+
+Manage own devices
+
+Create bookings
+
+Place orders
+
+View own history
+
+---
+
+Role: Technician
+
+Permissions:
+
+View assigned jobs
+
+Update repair status
+
+Upload proof
+
+Manage work profile
+
+---
+
+Role: Admin
+
+Permissions:
+
+Full platform access
+
+User management
+
+Technician management
+
+Product management
+
+Order management
+
+Analytics
+
+---
+
+HOSTING
+
+Mobile App
+
+Google Play Store
+
+Apple App Store (Future)
+
+---
+
+Admin Dashboard
+
+Hosting:
+Vercel
+
+---
+
+Backend
+
+Firebase
+
+---
+
+PAYMENT SYSTEM
+
+Provider:
+Razorpay
+
+Supported Methods:
+
+UPI
+
+Cards
+
+Net Banking
+
+Wallets
+
+EMI
+
+---
+
+Payment Security:
+
+Create Razorpay Orders via Cloud Functions
+
+Webhook Verification Required
+
+Never trust frontend payment responses
+
+Store verified payment records in Firestore
+
+---
+
+THIRD-PARTY SERVICES
+
+Razorpay
+
+Purpose:
+Payments
+
+Type:
+Paid
+
+---
+
+WhatsApp Business API
+
+Purpose:
+
+Booking confirmations
+
+Repair updates
+
+Support notifications
+
+Order updates
+
+Type:
+Paid
+
+---
+
+Google Maps
+
+Purpose:
+
+Address selection
+
+Location services
+
+Future technician tracking
+
+Type:
+Freemium
+
+---
+
+Firebase Cloud Messaging
+
+Purpose:
+
+Push notifications
+
+Type:
+Free
+
+---
+
+Firebase Analytics
+
+Purpose:
+
+User analytics
+
+Type:
+Free
+
+---
+
+Crashlytics
+
+Purpose:
+
+Crash monitoring
+
+Type:
+Free
+
+---
+
+KEY LIBRARIES
+
+React Navigation
+
+NativeWind
+
+Zustand
+
+React Hook Form
+
+Zod
+
+TanStack Query
+
+Expo Notifications
+
+Expo Image
+
+MMKV
+
+Lucide Icons
+
+Recharts
+
+TanStack Table
+
+Firebase SDK
+
+Razorpay SDK
+
+---
+
+FOLDER STRUCTURE
+
+Customer App
+
+/src
+
+/components
+
+/screens
+
+/navigation
+
+/features
+
+/auth
+
+/repair
+
+/store
+
+/orders
+
+/profile
+
+/support
+
+/services
+
+/firebase
+
+/hooks
+
+/store
+
+/utils
+
+/types
+
+/assets
+
+---
+
+Admin Dashboard
+
+/app
+
+/components
+
+/features
+
+/orders
+
+/products
+
+/customers
+
+/technicians
+
+/payments
+
+/analytics
+
+/settings
+
+/lib
+
+/hooks
+
+/types
+
+/public
+
+---
+
+FIRESTORE COLLECTIONS
+
+users
+
+devices
+
+repair_orders
+
+repair_status_history
+
+products
+
+categories
+
+cart
+
+store_orders
+
+payments
+
+technicians
+
+support_tickets
+
+notifications
+
+reviews
+
+coupons
+
+memberships
+
+settings
+
+analytics
+
+---
+
+STORAGE STRUCTURE
+
+/users
+
+/profile-images
+
+---
+
+/repairs
+
+/before-images
+
+/after-images
+
+---
+
+/products
+
+/images
+
+---
+
+/support
+
+/attachments
+
+---
+
+SECURITY REQUIREMENTS
+
+Use Firebase App Check
+
+Enable Firestore Security Rules
+
+Enable Storage Rules
+
+Role-based access control
+
+No passwords in Firestore
+
+No secrets in frontend
+
+Server-side payment verification
+
+Admin access by UID only
+
+Rate limiting on Cloud Functions
+
+Input validation using Zod
+
+HTTPS only
+
+---
+
+PUSH NOTIFICATIONS
+
+Repair Updates
+
+Order Updates
+
+Offers
+
+Technician Status Updates
+
+Membership Notifications
+
+Support Messages
+
+---
+
+ENVIRONMENT VARIABLES
+
+Mobile App
+
+EXPO_PUBLIC_FIREBASE_API_KEY
+
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN
+
+EXPO_PUBLIC_FIREBASE_PROJECT_ID
+
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET
+
+EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+
+EXPO_PUBLIC_FIREBASE_APP_ID
+
+EXPO_PUBLIC_RAZORPAY_KEY_ID
+
+EXPO_PUBLIC_GOOGLE_MAPS_API_KEY
+
+---
+
+Admin Dashboard
+
+NEXT_PUBLIC_FIREBASE_API_KEY
+
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+
+NEXT_PUBLIC_FIREBASE_PROJECT_ID
+
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+
+NEXT_PUBLIC_FIREBASE_APP_ID
+
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+
+---
+
+Cloud Functions
+
+RAZORPAY_KEY_ID
+
+RAZORPAY_KEY_SECRET
+
+WHATSAPP_API_TOKEN
+
+WHATSAPP_PHONE_NUMBER_ID
+
+FIREBASE_SERVICE_ACCOUNT
+
+---
+
+PERFORMANCE REQUIREMENTS
+
+App launch < 3 seconds
+
+Page load < 2 seconds
+
+Image lazy loading
+
+Offline cache support
+
+Optimized Firestore queries
+
+Pagination everywhere
+
+Compression for uploads
+
+---
+
+TECHNICAL CONSTRAINTS
+
+Must support Android first
+
+Must support iOS later
+
+Must be Play Store compliant
+
+Must be scalable to 1M+ users
+
+Must use Firebase ecosystem
+
+Must use Razorpay
+
+Must support WhatsApp integration
+
+Must maintain a single design system
+
+Must follow TypeScript everywhere
+
+No sensitive secrets stored in frontend
+
+No direct database access without security rules
+
+---
+
+SUCCESS CRITERIA
+
+All customer flows operational
+
+All admin flows operational
+
+All technician flows operational
+
+Payments verified securely
+
+Push notifications working
+
+Repair tracking working
+
+Store orders working
+
+App Store / Play Store ready
+
+Production-grade security implemented
+
+Scalable architecture established
+
+This document becomes the technical source of truth for all future FixBee development.

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ticket Details - FixBee</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#dce9ff",
+                        "on-primary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#4d4732",
+                        "surface": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary": "#565e74",
+                        "inverse-primary": "#e9c400",
+                        "secondary": "#005cba",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-surface": "#0b1c30",
+                        "on-primary-container": "#705e00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#705d00",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "surface-container-low": "#eff4ff",
+                        "background": "#f8f9ff",
+                        "secondary-fixed": "#d7e3ff",
+                        "on-secondary-fixed-variant": "#00458e",
+                        "inverse-surface": "#213145",
+                        "primary-container": "#ffd700",
+                        "on-primary-container": "#705e00",
+                        "on-tertiary-container": "#575e75",
+                        "tertiary-container": "#d2d9f4",
+                        "tertiary-fixed": "#dae2fd",
+                        "primary": "#705d00",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline": "#7e775f",
+                        "surface-dim": "#cbdbf5",
+                        "outline-variant": "#d0c6ab",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-fixed": "#221b00",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed-variant": "#544600",
+                        "on-secondary-container": "#002d61",
+                        "secondary-container": "#5095fe",
+                        "primary-fixed-dim": "#e9c400",
+                        "primary-fixed": "#ffe16d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "title-md": ["Inter"],
+                        "technical-data": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "technical-data": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+        .thread-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        .thread-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .thread-container::-webkit-scrollbar-thumb {
+            background: #d0c6ab;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-24 md:pb-0 md:pt-16">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 flex items-center justify-between px-margin-mobile h-16 shadow-sm">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform p-2 rounded-full hover:bg-primary/10">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">BeeCare+</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform p-2 rounded-full hover:bg-primary/10">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+</button>
+</div>
+</nav>
+<main class="max-w-screen-lg mx-auto px-margin-mobile mt-6 mb-12">
+<!-- Ticket Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<span class="font-technical-data text-technical-data bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full">#TK-4829</span>
+<span class="flex items-center gap-1.5 font-label-caps text-label-caps text-primary bg-primary-container/30 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        In Progress
+                    </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Screen Replacement Warranty</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 md:flex-none px-6 py-3 bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded-xl shadow-sm hover:brightness-95 transition-all active:scale-95">
+                    Mark as Resolved
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Main Conversation Column -->
+<div class="md:col-span-8 flex flex-col gap-6">
+<!-- Info Banner -->
+<div class="glass-card rounded-2xl p-4 flex items-start gap-4 border-l-4 border-l-primary">
+<span class="material-symbols-outlined text-primary mt-1">schedule</span>
+<div>
+<p class="font-title-md text-title-md text-primary">Estimated Resolution</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Technician Arpit is expected to update your status by <span class="font-bold">Today, 5:30 PM</span>.</p>
+</div>
+</div>
+<!-- Chat Thread -->
+<div class="space-y-6 thread-container">
+<!-- User Message -->
+<div class="flex flex-col items-end gap-2">
+<div class="bg-secondary text-on-secondary p-4 rounded-2xl rounded-tr-none max-w-[85%] shadow-sm">
+<p class="text-body-lg font-body-lg">Hi team, the screen on my Samsung S23 is flickering again after the last repair. It happens mostly when the brightness is low.</p>
+</div>
+<div class="flex items-center gap-2 px-1">
+<span class="text-[10px] text-on-surface-variant font-technical-data">09:15 AM</span>
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Agent Message -->
+<div class="flex flex-col items-start gap-2">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Support Agent Avatar" class="w-full h-full object-cover" data-alt="A professional support agent avatar for a technology repair company. The avatar is a friendly, approachable 3D illustration of a man with a headset, wearing a smart polo shirt. The background is a clean, soft blue gradient, maintaining the high-trust, premium clinical efficiency of the FixBee brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD68n9VJ63LgyuM44QAzeZAODfHUlo03aldJBuGIOMwfTSzTl2F43ATUV1yIs2oDuFOtZbdcZIQ8QngBMlrWJy-q6IhGnyhQ_6ZT33mAiOBvjGgseuiefg2pCgfe7Getb7GXWQQsugFt13WYb-HF6AhznhF1A-PZRhusZiDt_emSykJFHWIXXOQPDTNmS5_v4_zidrkd1IHsyuLDBqAkpdxBpabRv5F8ho2Fk-QcMW3nkx6FiWGddAIGvcQHgppE-_Oea_Eqx3cZqw"/>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface">Arpit (Support Expert)</span>
+</div>
+<div class="glass-card text-on-surface p-4 rounded-2xl rounded-tl-none max-w-[85%]">
+<p class="text-body-lg font-body-lg">I'm sorry to hear that, Rahul. This sounds like it could be a loose display connector. Could you please upload a short video or a photo of the screen flickering? This will help me escalate it directly to the senior technician.</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-technical-data px-1">09:42 AM</span>
+</div>
+<!-- User Upload -->
+<div class="flex flex-col items-end gap-2">
+<div class="bg-secondary text-on-secondary p-2 rounded-2xl rounded-tr-none max-w-[85%] shadow-sm">
+<div class="rounded-xl overflow-hidden mb-2">
+<img alt="Damaged Phone" class="w-full aspect-video object-cover" data-alt="A close-up shot of a modern smartphone with a glowing OLED screen exhibiting visible vertical green flicker lines. The setting is a dimly lit, minimalist interior with cool blue and warm yellow ambient lighting. The phone is held by a hand, showcasing the premium glass and metal build of the device in a clinical, high-tech repair context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBfyKM5nSZOHQ4CMfWa4Cc1bL0kB2LFET7HKWf43DgMoOE9rBbQ4Cwkcx3ZqJLegS6MoJKvhH4oZbebWEi5p_G-dcuKi9KTN3feIf0s5VE7S3S-rFuuloiSCj0WuFTdHd-axHwZlPm601gf3TsLqpGYbQMSaSAb6_K7k2wf9rOqc31bp3mWQfGA_M-GWMoRTnvufnOXj5JhT2e1r0AWffGto1Xw08ZweXwfphhDP7JA7C_c_uu_eaYQmYDr0fJ3X-asv8bfY_g5ZM"/>
+</div>
+<p class="px-2 pb-2 text-body-sm font-body-sm opacity-90 italic text-right">IMG_8829.jpg - 2.4 MB</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-technical-data px-1">10:05 AM</span>
+</div>
+</div>
+<!-- Input Area -->
+<div class="mt-4 glass-card p-3 rounded-2xl shadow-lg sticky bottom-24 md:bottom-6">
+<div class="flex items-center gap-2 mb-2 px-2">
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors" title="Attach file">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors" title="Take photo">
+<span class="material-symbols-outlined">photo_camera</span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant mx-1"></div>
+<span class="text-label-caps font-label-caps text-on-surface-variant opacity-60">Replying to Arpit...</span>
+</div>
+<div class="relative flex items-end gap-2">
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-body-lg focus:ring-2 focus:ring-primary/20 resize-none min-h-[80px]" placeholder="Type your message here..."></textarea>
+<button class="mb-2 mr-2 w-12 h-12 flex items-center justify-center bg-primary text-on-primary-fixed-variant rounded-xl shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sidebar Info Column -->
+<div class="md:col-span-4 space-y-6">
+<!-- Device Info Card -->
+<div class="glass-card rounded-2xl p-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Device Details</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-14 h-14 bg-primary-container/20 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">smartphone</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Samsung Galaxy S23</p>
+<p class="font-technical-data text-technical-data text-on-surface-variant">SN: 9928-FB-2024</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Warranty Status</span>
+<span class="text-body-sm font-technical-data text-secondary font-bold">Active (Elite)</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Purchase Date</span>
+<span class="text-body-sm font-technical-data text-on-surface">12 Oct 2023</span>
+</div>
+</div>
+</div>
+<!-- Support Timeline Card -->
+<div class="glass-card rounded-2xl p-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Ticket History</h3>
+<div class="relative space-y-6 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/30">
+<!-- Step 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface">Ticket Created</p>
+<p class="text-[11px] text-on-surface-variant font-technical-data">09:12 AM - Today</p>
+</div>
+<!-- Step 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface">Assigned to Arpit</p>
+<p class="text-[11px] text-on-surface-variant font-technical-data">09:30 AM - Today</p>
+</div>
+<!-- Step 3 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 ring-4 ring-primary/10">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<p class="font-label-caps text-label-caps text-primary">In Troubleshooting</p>
+<p class="text-[11px] text-on-surface-variant font-technical-data">Ongoing</p>
+</div>
+</div>
+</div>
+<!-- Help Center CTA -->
+<div class="bg-inverse-surface text-inverse-on-surface rounded-2xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-title-md text-title-md mb-2">Need immediate help?</p>
+<p class="text-body-sm font-body-sm opacity-80 mb-4">Call our premium 24/7 priority concierge line.</p>
+<button class="w-full py-2 bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps rounded-lg">Call Concierge</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">support_agent</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface/90 backdrop-blur-2xl border-t border-outline-variant/20 h-20 px-4 pb-safe flex justify-around items-center shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">devices_other</span>
+<span class="font-label-caps text-label-caps">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">card_membership</span>
+<span class="font-label-caps text-label-caps">BeeCare+</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for marking as resolved
+        document.querySelector('button.bg-primary-container').addEventListener('click', function() {
+            if(confirm('Are you sure you want to mark this ticket as resolved?')) {
+                this.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Resolved';
+                this.classList.remove('bg-primary-container', 'text-on-primary-container');
+                this.classList.add('bg-secondary', 'text-on-secondary');
+                document.querySelector('.animate-pulse').classList.remove('bg-primary', 'animate-pulse');
+                document.querySelector('.animate-pulse').classList.add('bg-secondary');
+            }
+        });
+
+        // Sticky input shadow toggle on scroll
+        const chatContainer = document.querySelector('.thread-container');
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,853 @@
+DOCUMENT 04 — UI/UX DESIGN BRIEF
+
+Visual & Interaction Design Guide
+
+---
+
+Product Name
+
+FixBee
+
+---
+
+Tagline
+
+Repair. Protect. Upgrade.
+
+---
+
+DESIGN PHILOSOPHY
+
+FixBee should feel like:
+
+A premium technology company.
+
+Not a repair shop.
+
+Not a local service app.
+
+Not a marketplace clone.
+
+Users should immediately feel:
+
+Trust
+
+Reliability
+
+Quality
+
+Craftsmanship
+
+Professionalism
+
+Premium Service
+
+---
+
+BRAND PERSONALITY
+
+Warm
+
+Premium
+
+Human
+
+Trustworthy
+
+Clean
+
+Modern
+
+Minimal
+
+Professional
+
+Fast
+
+Reliable
+
+---
+
+OVERALL AESTHETIC
+
+Premium Minimalism
+
+Luxury Technology
+
+Warm Modern Design
+
+Dark-First Experience
+
+Design Inspiration:
+
+Apple Support
+
+Nothing
+
+CRED
+
+Uber
+
+Stripe
+
+Linear
+
+Notion
+
+---
+
+COLOR PALETTE
+
+Primary Color
+
+Oak Brown
+
+HEX:
+#8B5A2B
+
+Usage:
+
+Primary buttons
+
+Brand identity
+
+Highlights
+
+Active states
+
+---
+
+Secondary Color
+
+Rust
+
+HEX:
+#B85C38
+
+Usage:
+
+Secondary actions
+
+Progress indicators
+
+Repair flow highlights
+
+Badges
+
+---
+
+Accent Color
+
+Premium Beige
+
+HEX:
+#D8C3A5
+
+Usage:
+
+Illustrations
+
+Premium sections
+
+FixBee Care
+
+Special cards
+
+Highlights
+
+---
+
+Background
+
+Midnight Black
+
+HEX:
+#0B0D10
+
+Usage:
+
+App background
+
+Dashboard background
+
+Main screens
+
+---
+
+Surface
+
+Dark Surface
+
+HEX:
+#171B20
+
+Usage:
+
+Cards
+
+Bottom sheets
+
+Navigation
+
+Containers
+
+---
+
+Border
+
+HEX:
+#252B34
+
+Usage:
+
+Input borders
+
+Card outlines
+
+Dividers
+
+---
+
+Text Primary
+
+HEX:
+#F5F5F5
+
+---
+
+Text Secondary
+
+HEX:
+#A8ADB4
+
+---
+
+Success
+
+HEX:
+#34C759
+
+---
+
+Warning
+
+HEX:
+#FFB020
+
+---
+
+Error
+
+HEX:
+#FF5A5F
+
+---
+
+TYPOGRAPHY
+
+Headings
+
+Font:
+Manrope
+
+Weight:
+700–800
+
+Purpose:
+
+Page titles
+
+Hero sections
+
+Important headings
+
+---
+
+Body Text
+
+Font:
+Inter
+
+Weight:
+400–500
+
+Purpose:
+
+Descriptions
+
+Lists
+
+Product details
+
+Forms
+
+---
+
+TYPOGRAPHY SCALE
+
+H1:
+36px
+
+H2:
+28px
+
+H3:
+22px
+
+H4:
+18px
+
+Body:
+16px
+
+Small:
+14px
+
+Caption:
+12px
+
+---
+
+SPACING SYSTEM
+
+Use ONLY these values:
+
+4px
+
+8px
+
+16px
+
+24px
+
+32px
+
+48px
+
+64px
+
+No random spacing.
+
+---
+
+BORDER RADIUS
+
+Buttons:
+16px
+
+Inputs:
+16px
+
+Cards:
+20px
+
+Bottom Sheets:
+28px
+
+App Icon:
+32px
+
+---
+
+BUTTON DESIGN
+
+Primary Button
+
+Background:
+Oak Brown
+
+Text:
+White
+
+Height:
+56px
+
+Radius:
+16px
+
+Style:
+Solid
+
+---
+
+Secondary Button
+
+Transparent
+
+Oak Brown Border
+
+Oak Brown Text
+
+---
+
+Ghost Button
+
+No background
+
+No border
+
+Text only
+
+---
+
+Danger Button
+
+Red Background
+
+White Text
+
+---
+
+CARD DESIGN
+
+Cards must feel premium.
+
+Style:
+
+Dark Surface
+
+20px Radius
+
+Subtle border
+
+Soft shadow
+
+Large padding
+
+Generous spacing
+
+---
+
+INPUT DESIGN
+
+Height:
+56px
+
+Radius:
+16px
+
+Dark background
+
+Premium focus states
+
+Clear labels
+
+Large tap targets
+
+---
+
+ICON STYLE
+
+Use:
+
+Rounded
+
+Minimal
+
+Modern
+
+Outlined
+
+Consistent stroke width
+
+---
+
+Do NOT use:
+
+3D icons
+
+Cartoon icons
+
+Emoji icons
+
+---
+
+LOGO SYSTEM
+
+Logo Style:
+
+Modern
+
+Minimal
+
+Geometric
+
+Technology-inspired
+
+Premium
+
+---
+
+Remove:
+
+Checkmark
+
+Generic repair symbols
+
+---
+
+Avoid:
+
+Wrench
+
+Hammer
+
+Screwdriver
+
+Gear icons
+
+---
+
+Use:
+
+Bee-inspired geometry
+
+Smartphone-inspired shapes
+
+Hexagon patterns
+
+Modern tech symbolism
+
+---
+
+APP LAYOUT STYLE
+
+Large whitespace
+
+Strong hierarchy
+
+Premium spacing
+
+Large touch targets
+
+Clear visual flow
+
+Readable content
+
+---
+
+HOME SCREEN DESIGN
+
+Hero-driven layout
+
+Sections:
+
+Header
+
+Hero Banner
+
+My Device
+
+Quick Actions
+
+Popular Repairs
+
+Accessories
+
+Repair History
+
+Recent Orders
+
+Support
+
+---
+
+REPAIR FLOW DESIGN
+
+Use step-by-step progression.
+
+Progress indicator at top.
+
+Each screen should focus on ONE decision only.
+
+Examples:
+
+Brand Selection
+
+Model Selection
+
+Issue Selection
+
+Estimate
+
+Address
+
+Payment
+
+Tracking
+
+---
+
+STORE DESIGN
+
+Amazon-level clarity
+
+Apple-level cleanliness
+
+Large product images
+
+Minimal clutter
+
+Simple filters
+
+Strong search
+
+---
+
+DEVICE VAULT DESIGN
+
+This is FixBee's signature feature.
+
+Must feel premium.
+
+Display:
+
+Phone Image
+
+Brand
+
+Model
+
+Warranty
+
+Repair History
+
+Protection Status
+
+Battery Health
+
+---
+
+REPAIR TRACKING DESIGN
+
+Inspired by:
+
+Uber
+
+Food delivery tracking
+
+Package tracking
+
+---
+
+Timeline:
+
+Request Created
+
+Technician Assigned
+
+Device Picked Up
+
+Repair Started
+
+Quality Check
+
+Ready For Delivery
+
+Delivered
+
+---
+
+Visual Style:
+
+Modern timeline
+
+Animated status updates
+
+Clear progress
+
+Trust-building visuals
+
+---
+
+PROFILE DESIGN
+
+Premium account dashboard.
+
+Sections:
+
+My Devices
+
+Addresses
+
+Payments
+
+Protection Plans
+
+Repair History
+
+Support
+
+Settings
+
+Logout
+
+---
+
+ADMIN DASHBOARD DESIGN
+
+Inspiration:
+
+Stripe Dashboard
+
+Linear
+
+Notion
+
+Modern SaaS products
+
+---
+
+Design Style:
+
+Clean
+
+Powerful
+
+Data-focused
+
+Minimal
+
+Professional
+
+---
+
+TECHNICIAN PANEL DESIGN
+
+Simple
+
+Fast
+
+Task-oriented
+
+Easy to use outdoors
+
+Large buttons
+
+High readability
+
+---
+
+ANIMATION SYSTEM
+
+Micro-interactions only.
+
+Duration:
+
+200ms
+
+300ms
+
+500ms
+
+---
+
+Allowed:
+
+Fade
+
+Slide
+
+Scale
+
+Skeleton loading
+
+---
+
+Avoid:
+
+Flashy effects
+
+Heavy motion
+
+Gaming effects
+
+Unnecessary animations
+
+---
+
+EMPTY STATES
+
+Every empty state should:
+
+Explain what happened
+
+Provide action
+
+Feel encouraging
+
+Use premium illustrations
+
+---
+
+ERROR STATES
+
+Must be human and helpful.
+
+Examples:
+
+Payment Failed
+
+No Internet
+
+Booking Failed
+
+Out of Stock
+
+Access Denied
+
+---
+
+ACCESSIBILITY
+
+Minimum contrast ratio maintained.
+
+Readable fonts.
+
+Large tap targets.
+
+Color should never be the only status indicator.
+
+Support one-handed use.
+
+---
+
+RESPONSIVE DESIGN
+
+Android First
+
+Tablet Friendly
+
+Future iOS Support
+
+Desktop Admin Support
+
+---
+
+PLAY STORE SCREENSHOT STYLE
+
+Premium marketing quality.
+
+Dark background.
+
+Warm branding.
+
+Realistic content.
+
+Consistent visual language.
+
+Investor-presentation ready.
+
+---
+
+FINAL EXPERIENCE GOAL
+
+When someone opens FixBee for the first time, they should think:
+
+"This feels like a premium company I can trust with my device."
+
+Not a repair shop.
+
+Not an online store.
+
+A complete device-care ecosystem designed by a world-class product team.

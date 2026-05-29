@@ -1,0 +1,903 @@
+DOCUMENT 06 — IMPLEMENTATION PLAN
+
+Step-by-Step Build Sequence
+
+Product Name
+
+FixBee
+
+Goal
+
+Build FixBee as a real production-ready device-care ecosystem with:
+
+- Customer Mobile App
+- Admin Dashboard
+- Technician Panel
+- Firebase Backend
+- Razorpay Payments
+- WhatsApp Notifications
+- Play Store Ready Android Build
+
+---
+
+PHASE 0 — BRAND & DESIGN FOUNDATION
+
+Goal
+
+Lock the identity before writing code.
+
+Tasks
+
+Finalize FixBee logo.
+
+Finalize color system.
+
+Finalize typography.
+
+Finalize icon style.
+
+Finalize design system.
+
+Create all Stitch UI screens.
+
+Review and improve every screen.
+
+Export assets.
+
+Prepare app icon and splash screen.
+
+Done Criteria
+
+Logo finalized.
+
+Design system finalized.
+
+All major customer, admin, and technician screens designed.
+
+No coding starts before design approval.
+
+---
+
+PHASE 1 — PROJECT SETUP
+
+Goal
+
+Create clean production-ready project structure.
+
+Tasks
+
+Create new GitHub repository.
+
+Create React Native Expo app with TypeScript.
+
+Create Next.js admin dashboard with TypeScript.
+
+Create Firebase project.
+
+Create Razorpay account.
+
+Create required ".env" files.
+
+Set up folder structure.
+
+Install core libraries.
+
+Set up linting and formatting.
+
+Set up Git branches.
+
+Mobile App Libraries
+
+React Navigation
+
+NativeWind
+
+Zustand
+
+React Hook Form
+
+Zod
+
+Firebase SDK
+
+Expo Image
+
+Expo Notifications
+
+MMKV
+
+Razorpay SDK
+
+Lucide Icons
+
+Admin Libraries
+
+Next.js
+
+Tailwind CSS
+
+shadcn/ui
+
+Firebase SDK
+
+TanStack Query
+
+TanStack Table
+
+Recharts
+
+Zod
+
+Done Criteria
+
+Mobile app runs locally.
+
+Admin dashboard runs locally.
+
+Firebase connected.
+
+Environment variables configured.
+
+Repository structure clean.
+
+---
+
+PHASE 2 — FIREBASE BACKEND SETUP
+
+Goal
+
+Build the secure data foundation.
+
+Tasks
+
+Enable Firebase Authentication.
+
+Enable Firestore.
+
+Enable Firebase Storage.
+
+Enable Cloud Functions.
+
+Enable Firebase App Check.
+
+Enable Firebase Analytics.
+
+Enable Crashlytics.
+
+Create Firestore collections.
+
+Create Firebase Storage folders.
+
+Write Firestore security rules.
+
+Write Storage security rules.
+
+Create required indexes.
+
+Seed test data.
+
+Collections
+
+users
+
+devices
+
+addresses
+
+repair_orders
+
+repair_status_history
+
+technicians
+
+categories
+
+products
+
+cart
+
+store_orders
+
+payments
+
+support_tickets
+
+notifications
+
+reviews
+
+coupons
+
+memberships
+
+settings
+
+Done Criteria
+
+All collections exist.
+
+Security rules added.
+
+Storage rules added.
+
+Indexes prepared.
+
+Test data available.
+
+Unauthorized reads/writes blocked.
+
+---
+
+PHASE 3 — AUTHENTICATION & ROLE SYSTEM
+
+Goal
+
+Create secure login and role-based access.
+
+Tasks
+
+Build signup.
+
+Build login.
+
+Build Google login.
+
+Build password reset.
+
+Create user profile after signup.
+
+Store role in Firestore.
+
+Create protected routes.
+
+Create admin access system.
+
+Create technician access system.
+
+Block unauthorized screens.
+
+Roles
+
+customer
+
+technician
+
+admin
+
+Done Criteria
+
+Customer login works.
+
+Admin login works.
+
+Technician login works.
+
+Users cannot access wrong dashboards.
+
+Passwords are never stored in Firestore.
+
+---
+
+PHASE 4 — CUSTOMER APP CORE SHELL
+
+Goal
+
+Build the main app structure.
+
+Tasks
+
+Create splash screen.
+
+Create onboarding.
+
+Create bottom navigation.
+
+Create home screen.
+
+Create repair tab.
+
+Create store tab.
+
+Create orders tab.
+
+Create profile tab.
+
+Apply FixBee design system.
+
+Done Criteria
+
+Customer app navigation works.
+
+All tabs open correctly.
+
+Design matches Stitch screens.
+
+No broken navigation.
+
+---
+
+PHASE 5 — DEVICE VAULT
+
+Goal
+
+Build FixBee’s signature device management feature.
+
+Tasks
+
+Add device screen.
+
+My devices screen.
+
+Device detail screen.
+
+Device warranty fields.
+
+Device repair history link.
+
+Device-compatible accessories link.
+
+Device-based repair booking link.
+
+Done Criteria
+
+User can add device.
+
+User can view saved devices.
+
+Device data is stored securely.
+
+Device connects to repair and store flows.
+
+---
+
+PHASE 6 — REPAIR BOOKING SYSTEM
+
+Goal
+
+Allow users to book repair services end-to-end.
+
+Tasks
+
+Build brand selection.
+
+Build model selection.
+
+Build issue selection.
+
+Build price estimate screen.
+
+Build service type screen.
+
+Build address selection.
+
+Build pickup scheduling.
+
+Build booking review.
+
+Create repair order in Firestore.
+
+Create initial repair timeline status.
+
+Done Criteria
+
+User can book repair.
+
+Repair order appears in Firestore.
+
+Order appears in user orders.
+
+Admin can see repair order.
+
+Timeline starts at “Request Created.”
+
+---
+
+PHASE 7 — REPAIR TRACKING SYSTEM
+
+Goal
+
+Create transparent repair status tracking.
+
+Tasks
+
+Build repair tracking screen.
+
+Build timeline component.
+
+Create repair status history.
+
+Allow admin status updates.
+
+Allow technician status updates.
+
+Send in-app notifications.
+
+Prepare WhatsApp notification hooks.
+
+Done Criteria
+
+Status updates are saved.
+
+Timeline updates correctly.
+
+User sees live repair progress.
+
+Technician/admin updates are restricted by role.
+
+---
+
+PHASE 8 — ACCESSORIES STORE
+
+Goal
+
+Build Amazon-quality accessory shopping.
+
+Tasks
+
+Build store home.
+
+Build categories.
+
+Build product listing.
+
+Build product detail.
+
+Build search.
+
+Build filters.
+
+Build wishlist.
+
+Build cart.
+
+Build checkout.
+
+Create store order.
+
+Update inventory.
+
+Done Criteria
+
+User can browse products.
+
+User can add to cart.
+
+User can checkout.
+
+Store order appears in Firestore.
+
+Admin can manage store orders.
+
+---
+
+PHASE 9 — RAZORPAY PAYMENTS
+
+Goal
+
+Implement secure payments.
+
+Tasks
+
+Create Razorpay test keys.
+
+Create Cloud Function to create Razorpay order.
+
+Integrate Razorpay checkout in app.
+
+Verify payment through Cloud Function.
+
+Set up Razorpay webhook.
+
+Update payment status after webhook verification.
+
+Handle failed payments.
+
+Handle refunds later.
+
+Done Criteria
+
+Payments work in test mode.
+
+Payment is verified server-side.
+
+No frontend-only payment trust.
+
+Payment record stored in Firestore.
+
+Order payment status updates correctly.
+
+---
+
+PHASE 10 — ADMIN DASHBOARD
+
+Goal
+
+Build full business control center.
+
+Tasks
+
+Build admin login.
+
+Build dashboard analytics.
+
+Build repair orders module.
+
+Build store orders module.
+
+Build products module.
+
+Build categories module.
+
+Build customers module.
+
+Build technicians module.
+
+Build payments module.
+
+Build coupons module.
+
+Build support tickets module.
+
+Build settings module.
+
+Done Criteria
+
+Admin can manage platform.
+
+Admin can update orders.
+
+Admin can assign technicians.
+
+Admin can manage products.
+
+Admin can view payments.
+
+Admin access is protected.
+
+---
+
+PHASE 11 — TECHNICIAN PANEL
+
+Goal
+
+Build technician work management system.
+
+Tasks
+
+Build technician login.
+
+Build dashboard.
+
+Build today’s jobs.
+
+Build job detail.
+
+Build accept job action.
+
+Build update repair status.
+
+Build upload proof images.
+
+Build complete repair action.
+
+Build earnings screen.
+
+Done Criteria
+
+Technician can see assigned jobs.
+
+Technician can update only assigned jobs.
+
+Proof upload works.
+
+User timeline updates.
+
+Admin sees technician progress.
+
+---
+
+PHASE 12 — WHATSAPP & NOTIFICATIONS
+
+Goal
+
+Enable customer communication.
+
+Tasks
+
+Set up Firebase Cloud Messaging.
+
+Create notification system.
+
+Send booking confirmation.
+
+Send repair status updates.
+
+Send payment confirmation.
+
+Set up WhatsApp Business API.
+
+Create WhatsApp message templates.
+
+Connect WhatsApp notifications to repair events.
+
+Done Criteria
+
+Push notifications work.
+
+WhatsApp booking confirmation works.
+
+WhatsApp repair updates work.
+
+Notifications are logged in Firestore.
+
+---
+
+PHASE 13 — UI POLISH & RESPONSIVE DESIGN
+
+Goal
+
+Make the app feel premium and production-ready.
+
+Tasks
+
+Match all Stitch screens.
+
+Fix spacing.
+
+Fix typography.
+
+Fix colors.
+
+Add loading states.
+
+Add empty states.
+
+Add error states.
+
+Add animations.
+
+Optimize product cards.
+
+Optimize repair tracking.
+
+Optimize checkout.
+
+Make admin responsive.
+
+Done Criteria
+
+UI feels consistent.
+
+No random spacing.
+
+No broken layouts.
+
+No ugly empty states.
+
+All flows look premium.
+
+---
+
+PHASE 14 — SECURITY HARDENING
+
+Goal
+
+Protect users and business.
+
+Tasks
+
+Review Firestore rules.
+
+Review Storage rules.
+
+Enable App Check.
+
+Validate all inputs with Zod.
+
+Prevent unauthorized admin access.
+
+Prevent fake payment updates.
+
+Protect Cloud Functions.
+
+Secure environment variables.
+
+Test role-based access.
+
+Done Criteria
+
+Customer cannot access admin data.
+
+Technician cannot access other jobs.
+
+Payments cannot be faked.
+
+Secrets are not exposed.
+
+Database rules pass tests.
+
+---
+
+PHASE 15 — TESTING
+
+Goal
+
+Validate every core flow.
+
+Tasks
+
+Test signup.
+
+Test login.
+
+Test Google login.
+
+Test add device.
+
+Test repair booking.
+
+Test repair tracking.
+
+Test store order.
+
+Test Razorpay payment.
+
+Test admin order management.
+
+Test technician updates.
+
+Test support tickets.
+
+Test notifications.
+
+Test offline/network errors.
+
+Done Criteria
+
+All customer flows work.
+
+All admin flows work.
+
+All technician flows work.
+
+No critical bugs.
+
+Test users can complete real flows.
+
+---
+
+PHASE 16 — BETA RELEASE
+
+Goal
+
+Launch to 10–30 test users.
+
+Tasks
+
+Build Android APK.
+
+Install on test devices.
+
+Collect feedback.
+
+Fix bugs.
+
+Improve UI.
+
+Test payment in test mode.
+
+Test Firebase data.
+
+Test support process.
+
+Done Criteria
+
+10–30 users test successfully.
+
+Critical bugs fixed.
+
+App performance acceptable.
+
+Firebase data clean.
+
+---
+
+PHASE 17 — PRODUCTION RELEASE
+
+Goal
+
+Prepare for Play Store launch.
+
+Tasks
+
+Switch Firebase to production settings.
+
+Switch Razorpay to live keys.
+
+Add Privacy Policy.
+
+Add Terms & Conditions.
+
+Add Refund Policy.
+
+Create Play Store screenshots.
+
+Create Play Store description.
+
+Generate signed Android build.
+
+Run final security review.
+
+Submit to Play Store.
+
+Done Criteria
+
+Production app works.
+
+Live payments work.
+
+Policies ready.
+
+Signed APK/AAB ready.
+
+Play Store submission ready.
+
+---
+
+FINAL DONE CRITERIA
+
+FixBee is considered complete when:
+
+Customer can sign up and log in.
+
+Customer can add device.
+
+Customer can book repair.
+
+Customer can track repair.
+
+Customer can buy accessories.
+
+Customer can pay securely.
+
+Admin can manage orders.
+
+Admin can manage products.
+
+Admin can assign technicians.
+
+Technician can update jobs.
+
+Notifications work.
+
+WhatsApp updates work.
+
+Security rules are active.
+
+App is tested by beta users.
+
+Production build is ready for Play Store.
+
+---
+
+BUILD RULE
+
+Never skip foundation.
+
+Order must be:
+
+Design
+→ Setup
+→ Backend
+→ Auth
+→ Customer App
+→ Repair
+→ Store
+→ Payments
+→ Admin
+→ Technician
+→ Notifications
+→ Testing
+→ Launch
+
+No AI coding agent should freestyle outside this plan.DOCUMENT 06 — IMPLEMENTATION PLAN

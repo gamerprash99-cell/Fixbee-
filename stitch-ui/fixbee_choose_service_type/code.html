@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>FixBee - Choose Service Type</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#d2d9f4",
+                        "secondary-container": "#5095fe",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-fixed": "#221b00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#ffd700",
+                        "primary": "#705d00",
+                        "inverse-surface": "#213145",
+                        "outline-variant": "#d0c6ab",
+                        "outline": "#7e775f",
+                        "tertiary": "#565e74",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458e",
+                        "on-tertiary-container": "#575e75",
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-container": "#002d61",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#4d4732",
+                        "on-primary-fixed-variant": "#544600",
+                        "on-primary-container": "#705e00",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "secondary-fixed": "#d7e3ff",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#e9c400",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffe16d",
+                        "surface-variant": "#d3e4fe",
+                        "surface-tint": "#705d00",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-fixed": "#131b2e",
+                        "primary-fixed-dim": "#e9c400",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "secondary": "#005cba"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-max": "1440px",
+                        "margin-desktop": "32px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "technical-data": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "technical-data": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 12px -2px rgba(11, 28, 48, 0.05);
+        }
+        .active-stepper {
+            background-color: #ffd700;
+            color: #705e00;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-card-selected {
+            border: 2px solid #705d00;
+            background-color: #fffbeb;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg min-h-screen pb-32">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<span class="font-display-lg text-headline-lg-mobile font-extrabold text-primary">FixBee</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-[10px] text-on-secondary font-bold">
+            JD
+        </div>
+</header>
+<main class="pt-20 px-margin-mobile max-w-lg mx-auto">
+<!-- Progress Stepper -->
+<section class="mt-4 mb-8">
+<div class="flex items-center justify-between relative">
+<!-- Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -z-10 -translate-y-1/2"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">Device</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full active-stepper flex items-center justify-center text-sm font-bold border-2 border-primary">
+                        2
+                    </div>
+<span class="font-label-caps text-label-caps text-primary">Service</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center text-sm font-bold">
+                        3
+                    </div>
+<span class="font-label-caps text-label-caps">Schedule</span>
+</div>
+</div>
+</section>
+<!-- Headline -->
+<div class="mb-6">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Select Service Mode</h1>
+<p class="text-on-surface-variant font-body-sm">Choose how you want your device repaired today.</p>
+</div>
+<!-- Service Cards Stack -->
+<div class="space-y-4">
+<!-- Doorstep Repair (Premium) -->
+<button class="glass-card w-full p-6 rounded-xl text-left transition-all duration-200 border border-outline-variant group active:scale-[0.98]" id="card-doorstep" onclick="selectService('doorstep')">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary-container/20 p-3 rounded-lg">
+<img alt="Technician" class="w-12 h-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVLPR9YZwu__7FyK5rStvW5eqaTD3L4erA84sOP0V4w0CMkOxyixH_VazItrhDhjxOEWH9krNBbRx8e42mhNFRYa0D_RdgeXveyg5CjOM_aIATadeU6HuR0fP_IGvhA8f6hr1p446K_56A1fibwLkKSdhR1XjjGAY1xwJaUAaTZzTCS35dSXKcCJ6Dj8hrWsCshxFAZUqWhx5jOdSux9leeobaGtXHlLp9-2hc3_4jRoewHkPEWpPJ7qvWB6hFmXtsybppnE3_vEM"/>
+</div>
+<div class="bg-primary-fixed px-3 py-1 rounded-full border border-primary/20">
+<span class="font-label-caps text-[10px] text-on-primary-fixed uppercase tracking-wider">Elite Benefit</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Doorstep Repair</h3>
+<p class="text-on-surface-variant font-body-sm mb-4">Expert technician visits your location.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">verified</span>
+<span class="font-body-sm text-on-surface"><strong class="text-primary">0 ₹ Service Fee</strong> for Gold Members</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">bolt</span>
+<span class="font-body-sm text-on-surface">90-min technician arrival</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">security</span>
+<span class="font-body-sm text-on-surface">Certified on-site data safety</span>
+</div>
+</div>
+<div class="w-full py-3 text-center rounded-lg bg-primary text-on-primary font-title-md transition-colors group-[.service-card-selected]:bg-primary">
+                    Select Doorstep
+                </div>
+</button>
+<!-- Express Mail-In -->
+<button class="glass-card w-full p-6 rounded-xl text-left transition-all duration-200 border border-outline-variant group active:scale-[0.98]" id="card-mailin" onclick="selectService('mailin')">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-secondary-container/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Express Mail-In</h3>
+<p class="text-on-surface-variant font-body-sm mb-4">Hassle-free laboratory repair.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">package_2</span>
+<span class="font-body-sm text-on-surface">Free secure pickup &amp; delivery</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">schedule</span>
+<span class="font-body-sm text-on-surface">24-hour repair turnaround</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">biotech</span>
+<span class="font-body-sm text-on-surface">State-of-the-art lab facility</span>
+</div>
+</div>
+<div class="w-full py-3 text-center rounded-lg border-2 border-outline-variant text-on-surface font-title-md group-[.service-card-selected]:bg-primary group-[.service-card-selected]:text-on-primary group-[.service-card-selected]:border-primary">
+                    Select Mail-In
+                </div>
+</button>
+</div>
+<!-- Support Info -->
+<div class="mt-8 flex items-start gap-4 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+<p class="font-body-sm text-on-surface-variant">
+                Both services include FixBee's 6-month genuine part warranty and post-repair health certification.
+            </p>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-xl border-t border-outline-variant px-margin-mobile pt-4 pb-safe z-50">
+<div class="max-w-lg mx-auto flex flex-col gap-4">
+<button class="w-full bg-primary-container/30 text-on-surface-variant/40 py-4 rounded-xl font-title-md transition-all duration-300 cursor-not-allowed" disabled="" id="continue-btn">
+                Continue to Schedule
+            </button>
+</div>
+</div>
+<!-- Navigation Mirror for Structure (Suppressed from Shell Rule but logic present) -->
+<nav class="hidden">
+<!-- BottomNavBar Logic exists for structure but hidden on transactional step -->
+</nav>
+<script>
+        function selectService(type) {
+            const doorstep = document.getElementById('card-doorstep');
+            const mailin = document.getElementById('card-mailin');
+            const continueBtn = document.getElementById('continue-btn');
+
+            // Reset
+            doorstep.classList.remove('service-card-selected');
+            mailin.classList.remove('service-card-selected');
+            
+            // Apply Selection
+            if(type === 'doorstep') {
+                doorstep.classList.add('service-card-selected');
+            } else {
+                mailin.classList.add('service-card-selected');
+            }
+
+            // Enable Continue
+            continueBtn.disabled = false;
+            continueBtn.classList.remove('bg-primary-container/30', 'text-on-surface-variant/40', 'cursor-not-allowed');
+            continueBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'hover:opacity-90', 'active:scale-[0.98]');
+            continueBtn.innerHTML = 'Continue to Schedule';
+        }
+
+        // Entrance animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body></html>

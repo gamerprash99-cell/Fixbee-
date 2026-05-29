@@ -1,0 +1,1125 @@
+DOCUMENT 05 — BACKEND SCHEMA
+
+Data Model & Auth Architecture
+
+Product Name
+
+FixBee
+
+Backend Provider
+
+Firebase
+
+Database
+
+Cloud Firestore
+
+Authentication
+
+Firebase Authentication
+
+Storage
+
+Firebase Storage
+
+Server Logic
+
+Firebase Cloud Functions
+
+---
+
+1. AUTH MODEL
+
+Auth Provider
+
+Firebase Authentication
+
+Login Methods
+
+Email and Password
+
+Google Login
+
+Phone OTP in Phase 2
+
+Password Reset
+
+Email Verification
+
+---
+
+2. USER ROLES
+
+customer
+
+Can:
+
+Read and update own profile
+
+Add and manage own devices
+
+Create repair bookings
+
+Place store orders
+
+View own orders
+
+Create support tickets
+
+---
+
+technician
+
+Can:
+
+Read assigned repair jobs
+
+Update assigned repair statuses
+
+Upload repair proof images
+
+View own earnings
+
+Update own availability
+
+---
+
+admin
+
+Can:
+
+Read and write all platform data
+
+Manage users
+
+Manage technicians
+
+Manage repair orders
+
+Manage store orders
+
+Manage products
+
+Manage payments
+
+Manage support tickets
+
+View analytics
+
+---
+
+3. MAIN COLLECTIONS
+
+users
+
+Path:
+
+users/{userId}
+
+Purpose:
+
+Stores customer, technician, and admin profile data.
+
+Fields:
+
+uid: string
+
+name: string
+
+email: string
+
+phone: string
+
+role: "customer" | "technician" | "admin"
+
+photoUrl: string | null
+
+city: string | null
+
+defaultAddressId: string | null
+
+isBlocked: boolean
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+lastLoginAt: timestamp
+
+---
+
+devices
+
+Path:
+
+devices/{deviceId}
+
+Purpose:
+
+Stores user devices for Device Vault.
+
+Fields:
+
+id: string
+
+userId: string
+
+brand: string
+
+model: string
+
+imageUrl: string | null
+
+imei: string | null
+
+purchaseDate: timestamp | null
+
+warrantyEndDate: timestamp | null
+
+protectionPlanId: string | null
+
+batteryHealth: number | null
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+addresses
+
+Path:
+
+addresses/{addressId}
+
+Purpose:
+
+Stores user addresses.
+
+Fields:
+
+id: string
+
+userId: string
+
+fullName: string
+
+phone: string
+
+line1: string
+
+line2: string | null
+
+city: string
+
+state: string
+
+pincode: string
+
+landmark: string | null
+
+lat: number | null
+
+lng: number | null
+
+isDefault: boolean
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+repair_orders
+
+Path:
+
+repair_orders/{repairOrderId}
+
+Purpose:
+
+Stores repair bookings.
+
+Fields:
+
+id: string
+
+userId: string
+
+deviceId: string
+
+brand: string
+
+model: string
+
+issueType: string
+
+issueDescription: string | null
+
+estimatedPrice: number
+
+finalPrice: number | null
+
+serviceType: "pickup" | "dropoff" | "doorstep"
+
+addressId: string | null
+
+scheduledDate: timestamp | null
+
+timeSlot: string | null
+
+status: "created" | "technician_assigned" | "picked_up" | "repair_started" | "quality_check" | "ready_for_delivery" | "delivered" | "cancelled"
+
+technicianId: string | null
+
+paymentId: string | null
+
+paymentStatus: "pending" | "paid" | "failed" | "refunded"
+
+warrantyDays: number
+
+adminNotes: string | null
+
+customerNotes: string | null
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+completedAt: timestamp | null
+
+---
+
+repair_status_history
+
+Path:
+
+repair_status_history/{statusId}
+
+Purpose:
+
+Stores every repair timeline update.
+
+Fields:
+
+id: string
+
+repairOrderId: string
+
+status: string
+
+title: string
+
+description: string | null
+
+updatedBy: string
+
+updatedByRole: "admin" | "technician" | "system"
+
+imageUrls: array<string>
+
+createdAt: timestamp
+
+---
+
+technicians
+
+Path:
+
+technicians/{technicianId}
+
+Purpose:
+
+Stores technician profile and work data.
+
+Fields:
+
+id: string
+
+userId: string
+
+name: string
+
+phone: string
+
+email: string | null
+
+photoUrl: string | null
+
+skills: array<string>
+
+serviceAreas: array<string>
+
+isAvailable: boolean
+
+activeJobsCount: number
+
+completedJobsCount: number
+
+rating: number
+
+totalEarnings: number
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+categories
+
+Path:
+
+categories/{categoryId}
+
+Purpose:
+
+Stores store product categories.
+
+Fields:
+
+id: string
+
+name: string
+
+slug: string
+
+type: "repair" | "store"
+
+imageUrl: string | null
+
+isActive: boolean
+
+sortOrder: number
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+products
+
+Path:
+
+products/{productId}
+
+Purpose:
+
+Stores accessories store products.
+
+Fields:
+
+id: string
+
+name: string
+
+slug: string
+
+categoryId: string
+
+brand: string
+
+description: string
+
+price: number
+
+mrp: number
+
+discountPercent: number
+
+stock: number
+
+images: array<string>
+
+compatibleBrands: array<string>
+
+compatibleModels: array<string>
+
+rating: number
+
+reviewCount: number
+
+isActive: boolean
+
+isFeatured: boolean
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+cart
+
+Path:
+
+cart/{cartItemId}
+
+Purpose:
+
+Stores user cart items.
+
+Fields:
+
+id: string
+
+userId: string
+
+productId: string
+
+quantity: number
+
+selectedVariant: string | null
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+store_orders
+
+Path:
+
+store_orders/{storeOrderId}
+
+Purpose:
+
+Stores accessories purchase orders.
+
+Fields:
+
+id: string
+
+userId: string
+
+items: array<object>
+
+subtotal: number
+
+discountAmount: number
+
+deliveryFee: number
+
+totalAmount: number
+
+addressId: string
+
+paymentId: string | null
+
+paymentStatus: "pending" | "paid" | "failed" | "refunded"
+
+orderStatus: "placed" | "packed" | "shipped" | "out_for_delivery" | "delivered" | "cancelled"
+
+trackingNumber: string | null
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+deliveredAt: timestamp | null
+
+---
+
+payments
+
+Path:
+
+payments/{paymentId}
+
+Purpose:
+
+Stores verified payment records.
+
+Fields:
+
+id: string
+
+userId: string
+
+orderId: string
+
+orderType: "repair" | "store" | "membership"
+
+amount: number
+
+currency: "INR"
+
+provider: "razorpay"
+
+razorpayOrderId: string
+
+razorpayPaymentId: string | null
+
+razorpaySignature: string | null
+
+status: "created" | "paid" | "failed" | "refunded"
+
+verifiedByWebhook: boolean
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+support_tickets
+
+Path:
+
+support_tickets/{ticketId}
+
+Purpose:
+
+Stores customer support issues.
+
+Fields:
+
+id: string
+
+userId: string
+
+relatedOrderId: string | null
+
+relatedOrderType: "repair" | "store" | null
+
+subject: string
+
+message: string
+
+attachments: array<string>
+
+status: "open" | "in_progress" | "resolved" | "closed"
+
+assignedTo: string | null
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+notifications
+
+Path:
+
+notifications/{notificationId}
+
+Purpose:
+
+Stores user notifications.
+
+Fields:
+
+id: string
+
+userId: string
+
+title: string
+
+body: string
+
+type: "repair" | "store" | "payment" | "support" | "promotion"
+
+isRead: boolean
+
+data: object | null
+
+createdAt: timestamp
+
+---
+
+reviews
+
+Path:
+
+reviews/{reviewId}
+
+Purpose:
+
+Stores reviews for products and repair services.
+
+Fields:
+
+id: string
+
+userId: string
+
+targetId: string
+
+targetType: "product" | "repair" | "technician"
+
+rating: number
+
+comment: string | null
+
+images: array<string>
+
+createdAt: timestamp
+
+---
+
+coupons
+
+Path:
+
+coupons/{couponId}
+
+Purpose:
+
+Stores discount coupons.
+
+Fields:
+
+id: string
+
+code: string
+
+discountType: "percentage" | "fixed"
+
+discountValue: number
+
+minOrderAmount: number
+
+maxDiscountAmount: number | null
+
+validFrom: timestamp
+
+validUntil: timestamp
+
+usageLimit: number
+
+usedCount: number
+
+isActive: boolean
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+memberships
+
+Path:
+
+memberships/{membershipId}
+
+Purpose:
+
+Stores FixBee Care protection plans.
+
+Fields:
+
+id: string
+
+userId: string
+
+deviceId: string
+
+planName: string
+
+planType: "monthly" | "yearly"
+
+price: number
+
+status: "active" | "expired" | "cancelled"
+
+startDate: timestamp
+
+endDate: timestamp
+
+benefits: array<string>
+
+createdAt: timestamp
+
+updatedAt: timestamp
+
+---
+
+settings
+
+Path:
+
+settings/{settingId}
+
+Purpose:
+
+Stores platform settings.
+
+Fields:
+
+id: string
+
+key: string
+
+value: object
+
+updatedBy: string
+
+updatedAt: timestamp
+
+---
+
+4. RELATIONSHIPS
+
+users.uid → devices.userId
+
+users.uid → addresses.userId
+
+users.uid → repair_orders.userId
+
+users.uid → store_orders.userId
+
+users.uid → cart.userId
+
+users.uid → support_tickets.userId
+
+users.uid → notifications.userId
+
+users.uid → reviews.userId
+
+devices.id → repair_orders.deviceId
+
+repair_orders.id → repair_status_history.repairOrderId
+
+repair_orders.technicianId → technicians.id
+
+products.categoryId → categories.id
+
+payments.orderId → repair_orders.id or store_orders.id
+
+memberships.deviceId → devices.id
+
+---
+
+5. INDEXES
+
+Create indexes for:
+
+users.role
+
+devices.userId
+
+addresses.userId
+
+repair_orders.userId
+
+repair_orders.technicianId
+
+repair_orders.status
+
+repair_orders.createdAt
+
+repair_status_history.repairOrderId
+
+products.categoryId
+
+products.isActive
+
+products.isFeatured
+
+products.compatibleModels
+
+cart.userId
+
+store_orders.userId
+
+store_orders.orderStatus
+
+payments.userId
+
+payments.orderId
+
+support_tickets.userId
+
+support_tickets.status
+
+notifications.userId
+
+notifications.isRead
+
+reviews.targetId
+
+coupons.code
+
+memberships.userId
+
+memberships.deviceId
+
+---
+
+6. FIREBASE STORAGE STRUCTURE
+
+/users/{userId}/profile/profile.jpg
+
+/devices/{userId}/{deviceId}/device.jpg
+
+/repairs/{repairOrderId}/before/{imageId}.jpg
+
+/repairs/{repairOrderId}/after/{imageId}.jpg
+
+/products/{productId}/{imageId}.jpg
+
+/support/{ticketId}/{imageId}.jpg
+
+/technicians/{technicianId}/profile.jpg
+
+---
+
+7. SECURITY RULES OVERVIEW
+
+users
+
+Customer can read and update only own profile.
+
+Admin can read and update all users.
+
+Technician can read own profile.
+
+---
+
+devices
+
+Customer can read and write only own devices.
+
+Admin can read all devices.
+
+---
+
+repair_orders
+
+Customer can create repair orders.
+
+Customer can read only own repair orders.
+
+Technician can read only assigned repair orders.
+
+Technician can update limited status fields only.
+
+Admin can read and write all repair orders.
+
+---
+
+products
+
+Anyone can read active products.
+
+Admin can create, update, and delete products.
+
+---
+
+store_orders
+
+Customer can read only own orders.
+
+Admin can read and update all orders.
+
+---
+
+payments
+
+Customer can read own payments.
+
+Payment creation and verification must happen through Cloud Functions only.
+
+Admin can read all payments.
+
+---
+
+support_tickets
+
+Customer can create and read own tickets.
+
+Admin can read and update all tickets.
+
+---
+
+notifications
+
+Customer can read own notifications.
+
+System/Admin can create notifications.
+
+---
+
+8. SENSITIVE DATA RULES
+
+Never store:
+
+Raw passwords
+
+Card numbers
+
+CVV
+
+Bank details
+
+Razorpay secret key
+
+WhatsApp API token
+
+Firebase service account in frontend
+
+---
+
+Store only:
+
+Payment IDs
+
+Order IDs
+
+Payment status
+
+Webhook verification result
+
+---
+
+9. CLOUD FUNCTIONS
+
+createRazorpayOrder
+
+Creates Razorpay order securely.
+
+Used by:
+
+Repair payment
+
+Store checkout
+
+Membership payment
+
+---
+
+verifyRazorpayWebhook
+
+Verifies Razorpay webhook signature.
+
+Updates payment status.
+
+Updates order payment status.
+
+---
+
+assignTechnician
+
+Assigns technician to repair order.
+
+Creates repair timeline update.
+
+Sends notification.
+
+---
+
+updateRepairStatus
+
+Updates repair order status.
+
+Creates repair_status_history entry.
+
+Sends push notification.
+
+Sends WhatsApp notification.
+
+---
+
+sendWhatsAppNotification
+
+Sends booking, payment, and repair status updates.
+
+---
+
+createNotification
+
+Creates in-app notification.
+
+---
+
+onOrderCreated
+
+Triggers after repair or store order creation.
+
+Sends confirmation notification.
+
+---
+
+10. API ENDPOINTS / FUNCTIONS
+
+POST createRazorpayOrder
+
+POST verifyRazorpayWebhook
+
+POST assignTechnician
+
+POST updateRepairStatus
+
+POST sendWhatsAppNotification
+
+POST createSupportTicket
+
+POST updateProductStock
+
+POST createAdminUser
+
+---
+
+11. BACKEND RULES
+
+Every user must have a users/{uid} profile.
+
+Every repair order must belong to a user.
+
+Every store order must belong to a user.
+
+Every payment must be verified server-side.
+
+Every repair status update must create a history record.
+
+Every technician update must be tied to assigned order only.
+
+Every admin action should be logged in future audit logs.
+
+---
+
+12. FUTURE COLLECTIONS
+
+audit_logs
+
+inventory_batches
+
+refunds
+
+delivery_partners
+
+service_centers
+
+corporate_clients
+
+device_trade_ins
+
+refurbished_products
+
+insurance_claims
+
+---
+
+13. FINAL BACKEND PRINCIPLE
+
+The backend must protect the business from:
+
+Fake payments
+
+Unauthorized admin access
+
+Technician misuse
+
+Customer data leakage
+
+Product stock errors
+
+Repair status manipulation
+
+Unverified order completion
+
+FixBee backend must be built like a real company system from day one.
