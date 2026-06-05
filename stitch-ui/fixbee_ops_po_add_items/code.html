@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management - Add Items</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface": "#f8f9ff",
+                "surface-tint": "#705d00",
+                "on-tertiary-fixed-variant": "#3f465c",
+                "on-error": "#ffffff",
+                "primary-fixed-dim": "#e9c400",
+                "surface-container": "#e5eeff",
+                "background": "#f8f9ff",
+                "primary": "#705d00",
+                "surface-dim": "#cbdbf5",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed": "#221b00",
+                "inverse-primary": "#e9c400",
+                "on-background": "#0b1c30",
+                "primary-fixed": "#ffe16d",
+                "secondary": "#005cba",
+                "on-secondary": "#ffffff",
+                "on-primary-fixed-variant": "#544600",
+                "tertiary": "#565e74",
+                "on-secondary-fixed-variant": "#00458e",
+                "on-primary": "#ffffff",
+                "secondary-container": "#5095fe",
+                "outline": "#7e775f",
+                "on-error-container": "#93000a",
+                "on-surface": "#0b1c30",
+                "inverse-on-surface": "#eaf1ff",
+                "surface-bright": "#f8f9ff",
+                "on-secondary-container": "#002d61",
+                "tertiary-fixed-dim": "#bec6e0",
+                "on-primary-container": "#705e00",
+                "primary-container": "#ffd700",
+                "surface-container-high": "#dce9ff",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#d7e3ff",
+                "error-container": "#ffdad6",
+                "tertiary-fixed": "#dae2fd",
+                "surface-container-low": "#eff4ff",
+                "outline-variant": "#d0c6ab",
+                "surface-variant": "#d3e4fe",
+                "secondary-fixed-dim": "#aac7ff",
+                "on-tertiary-fixed": "#131b2e",
+                "on-tertiary-container": "#575e75",
+                "on-secondary-fixed": "#001b3e",
+                "on-surface-variant": "#4d4732",
+                "inverse-surface": "#213145",
+                "error": "#ba1a1a",
+                "tertiary-container": "#d2d9f4",
+                "surface-container-highest": "#d3e4fe"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "32px",
+                "unit": "4px",
+                "gutter": "16px",
+                "margin-mobile": "16px",
+                "container-max": "1440px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Hanken Grotesk"],
+                "title-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "technical-data": ["JetBrains Mono"],
+                "display-lg": ["Hanken Grotesk"],
+                "body-sm": ["Inter"],
+                "label-caps": ["JetBrains Mono"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-margin-desktop bg-surface border-b border-outline-variant h-20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200" data-icon="menu">menu</span>
+<h1 class="font-display-lg text-[28px] font-extrabold text-primary">Operations Portal</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8">
+<button class="font-title-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg cursor-pointer">Dashboard</button>
+<button class="font-title-md text-primary font-bold px-3 py-2 rounded-lg cursor-pointer">Inventory</button>
+<button class="font-title-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg cursor-pointer">Reports</button>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center border border-outline-variant overflow-hidden cursor-pointer active:scale-95 duration-200">
+<img alt="Operations Manager Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBF7EKWdG5S0FPEPjraw1hveqmWminlJkqhV9OjyVsnUST54lUltGqQ-qypQPkFRPvHdm9w3mBlwpz_QlomJ0LxkIcrL6ek-Tuw6ZWHQeunCx68_OIGLL-KeL9T0qSV1cKTknB48Tc3MAFBrECUVeMoA49BjIqhFCD7SV78vh1DV7_cf6MVXNf9dz-igC08v3s5EdORSso6ci1wX6zxZlUkkNMeYVzsK78UD-mi8mLU0o4Cpgu563n7BfoCAv-r3VMKtk00wI3Bsg"/>
+</div>
+</div>
+</header>
+<!-- Sidebar (Desktop NavigationDrawer) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-[280px] bg-surface-container-low border-r border-outline-variant flex-col py-6 gap-2 z-30 pt-24 shadow-sm">
+<div class="px-6 mb-8">
+<h2 class="font-headline-lg text-primary text-[24px] font-black">Admin Panel</h2>
+<p class="font-body-sm text-on-surface-variant">Device Care Operations</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 flex items-center gap-3 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-title-md">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 flex items-center gap-3 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-title-md">Purchase Orders</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container font-semibold rounded-lg px-4 py-3 mx-2 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-title-md">Inventory</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 flex items-center gap-3 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-title-md">Vendors</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 flex items-center gap-3 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-title-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto px-6 py-4">
+<span class="font-technical-data text-on-surface-variant opacity-50">v1.0.4</span>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:pl-[280px] pt-20 pb-24 min-h-screen">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Stepper Header -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="font-label-caps text-secondary uppercase tracking-widest block mb-2">Step 2 of 3</span>
+<h2 class="font-headline-lg text-on-surface">Select Inventory Parts</h2>
+<p class="font-body-lg text-on-surface-variant mt-1">Review current stock levels and add items to your replenishment order.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 rounded-lg font-title-md border border-outline text-on-surface hover:bg-surface-container-high transition-colors">Save Draft</button>
+<button class="px-6 py-2.5 rounded-lg font-title-md bg-primary-container text-on-primary-container font-bold shadow-sm hover:shadow-md transition-all active:scale-95">Review Order</button>
+</div>
+</div>
+<!-- Search and Filter Bar -->
+<div class="flex flex-col md:flex-row gap-4 mb-8">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-white border border-outline-variant rounded-xl focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none font-body-lg" placeholder="Search by SKU, part name, or device model..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+<button class="whitespace-nowrap px-5 py-3 rounded-xl bg-secondary-container text-on-secondary-container font-semibold text-body-sm">All Categories</button>
+<button class="whitespace-nowrap px-5 py-3 rounded-xl bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors text-body-sm">Displays</button>
+<button class="whitespace-nowrap px-5 py-3 rounded-xl bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors text-body-sm">Batteries</button>
+<button class="whitespace-nowrap px-5 py-3 rounded-xl bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors text-body-sm">Motherboards</button>
+<button class="whitespace-nowrap px-5 py-3 rounded-xl bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors text-body-sm">Accessories</button>
+</div>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Part Card 1 -->
+<div class="glass-card rounded-2xl p-6 flex flex-col transition-all hover:border-secondary/30">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional, high-resolution close-up of a premium smartphone display assembly panel with ribbon cables attached, set against a clean clinical white background with soft studio lighting. The aesthetic is modern, high-tech, and minimalist, emphasizing the precision of the device care industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCooF_Kg9U6atjrevgZPjwagyt5Kde7aUzhECAC-xLsY7-vyAvDk5R6-_NQfmJWSSjEKRiYOjQkhqeMX-bOYg5W2zJRdkZGt1nyjjJjrDvrhb7wYt_t3xTaT9xbmQYjD_NujHtmdq5UXBprt2K07Pe5TsOhWCbvU7BNUSSrU1RAXHx1w7NU2u4UQF5odOwCuSqMrQTpMa-9WVACr2Hoig3LWbNIKX74TmUICSTvP4-ZunXP5V7ukRi49UTSyCUneiFiOk3fvaOlq8Q"/>
+</div>
+<div>
+<h3 class="font-title-md text-on-surface">iPhone 14 Pro OLED</h3>
+<p class="font-technical-data text-on-surface-variant opacity-70">SKU: LCD-IP14P-ORG</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-error-container text-on-error-container font-label-caps text-[10px] rounded-md">LOW STOCK</span>
+</div>
+<div class="grid grid-cols-2 gap-4 py-4 border-y border-outline-variant/30 mb-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[11px]">CURRENT STOCK</span>
+<span class="font-title-md text-error">4 units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-secondary text-[11px]">SUGGESTED ORDER</span>
+<span class="font-title-md text-secondary">15 units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-body-sm text-on-surface-variant">Based on 8 pending repairs</span>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="decrement(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-technical-data text-body-lg quantity">15</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="increment(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Part Card 2 -->
+<div class="glass-card rounded-2xl p-6 flex flex-col transition-all hover:border-secondary/30">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a sleek lithium-ion smartphone battery with gold contacts, resting on a matte navy blue surface with dramatic side lighting. The scene is clean, organized, and premium, suggesting high-end electronics repair and genuine parts. The lighting creates subtle highlights on the battery's smooth casing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH_4lwWi0TE0biZ2jw1TtEeMpXOLU604LL3W675fvI6kZDCHf_Y5MfQFFY6VDivbteJ-Ogtxun2-5_cIU86PDHMPhbgybnL7W3u5BrZDZ8eJR3ZkW77U6lmAmKEfaTMSiHmTjkFDUvzPqr2YQQlA5n8c6x55di9sV66k3Zsq49tSEcR46vvM1DE6x1Dyk80VqyXScXgnLGuaCOw1B5ix3FEw1LdMdgtJ23hq350Mq3q-EDGAFAwQFQr5MWSyXELJejfzBjn4H501Q"/>
+</div>
+<div>
+<h3 class="font-title-md text-on-surface">Samsung S22 Battery</h3>
+<p class="font-technical-data text-on-surface-variant opacity-70">SKU: BAT-SSG22-OEM</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant font-label-caps text-[10px] rounded-md">HEALTHY</span>
+</div>
+<div class="grid grid-cols-2 gap-4 py-4 border-y border-outline-variant/30 mb-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[11px]">CURRENT STOCK</span>
+<span class="font-title-md">24 units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-secondary text-[11px]">SUGGESTED ORDER</span>
+<span class="font-title-md text-secondary">5 units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-body-sm text-on-surface-variant">Maintenance restock</span>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="decrement(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-technical-data text-body-lg quantity">5</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="increment(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Part Card 3 -->
+<div class="glass-card rounded-2xl p-6 flex flex-col transition-all hover:border-secondary/30">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A highly detailed view of a laptop logic board circuit, showing microscopic golden capacitors and intricate microchips. The scene is illuminated by cool blue and warm yellow light-leak effects, creating a futuristic, high-trust technology repair vibe. Pristine and clinical but with a luxury tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR-N7sYYk0fqsJZihAZjQtPPKzcaVzwdK2RmXA8GPa7sS00jW4DUX5dhP7MoLvN7Fal2O7Nv--Vl3GFbZDX8YMsUrBF3jCjJCHatsVxjxwU9t26I-7MbBwxYKxO5DbREQCJQ5HKYa4Jua25S4BGO9Rluxruujebu9IbjnhcbLMZ_YAd9sA22Nwef-rxogSLdrovbMHGjgkKdmiIc0fA4OotPWcnS4TU2zzJN9B6F-SUyRUN7NjNLjPdlajsG0q0ChTCG8qZXYTkPk"/>
+</div>
+<div>
+<h3 class="font-title-md text-on-surface">MacBook Pro M1 Logic Board</h3>
+<p class="font-technical-data text-on-surface-variant opacity-70">SKU: MLB-MBP14-M1</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-error-container text-on-error-container font-label-caps text-[10px] rounded-md">OUT OF STOCK</span>
+</div>
+<div class="grid grid-cols-2 gap-4 py-4 border-y border-outline-variant/30 mb-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[11px]">CURRENT STOCK</span>
+<span class="font-title-md text-error">0 units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-secondary text-[11px]">SUGGESTED ORDER</span>
+<span class="font-title-md text-secondary">2 units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-body-sm text-on-surface-variant">High-value item</span>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="decrement(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-technical-data text-body-lg quantity">2</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="increment(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Part Card 4 -->
+<div class="glass-card rounded-2xl p-6 flex flex-col transition-all hover:border-secondary/30">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean layout of smartphone camera module replacement parts featuring triple-lens arrays. The background is a soft, warm neutral grey with professional diffused lighting that highlights the glass lenses. The style is crisp, technical, and emphasizes authenticity and precision in device maintenance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcMfLMa04Sfp3KrgiISrVxcJ_D1dMzJieqY4zAZxwJjBTk3FVuHSFm5-VUcsD3FJrIEjU-Z77KC47QOrKSsLsEBabtFOl-AuIycap91C7JsmI1449oGcYvrQn3HSl2O7eftFXAT_hd8JSSfhEsHmXpzU2vozA1QftV_-PiJXd5uFbOf4i04lW8hGKxqpD6rnpR1a_WjVwHdbZyhTXON_pGoDS_SGFgAVlBJ_Lp5_b-RGyXHLZri7t5ZQMDpl2tVdovaTbeWTTMYsw"/>
+</div>
+<div>
+<h3 class="font-title-md text-on-surface">iPhone 13 Camera Module</h3>
+<p class="font-technical-data text-on-surface-variant opacity-70">SKU: CAM-IP13-REAR</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant font-label-caps text-[10px] rounded-md">HEALTHY</span>
+</div>
+<div class="grid grid-cols-2 gap-4 py-4 border-y border-outline-variant/30 mb-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[11px]">CURRENT STOCK</span>
+<span class="font-title-md">12 units</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-secondary text-[11px]">SUGGESTED ORDER</span>
+<span class="font-title-md text-secondary">0 units</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-body-sm text-on-surface-variant">Low demand this month</span>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="decrement(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-technical-data text-body-lg quantity">0</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest text-on-surface transition-colors active:scale-90" onclick="increment(this)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Admin BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant flex justify-around items-center py-2 px-4 z-40 h-16 shadow-lg">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-medium">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-[10px] font-bold">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-[10px] font-medium">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-[10px] font-medium">Reports</span>
+</button>
+</nav>
+<script>
+        function increment(btn) {
+            const span = btn.parentElement.querySelector('.quantity');
+            let val = parseInt(span.innerText);
+            span.innerText = val + 1;
+        }
+
+        function decrement(btn) {
+            const span = btn.parentElement.querySelector('.quantity');
+            let val = parseInt(span.innerText);
+            if (val > 0) {
+                span.innerText = val - 1;
+            }
+        }
+    </script>
+</body></html>

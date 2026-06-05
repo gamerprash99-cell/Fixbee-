@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixBee Premium App Icon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+        }
+
+        /* Container for 1024x1024 preview */
+        .icon-container {
+            width: 1024px;
+            height: 1024px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Scale down for mobile preview if necessary, but keep internal coords at 1024 */
+            max-width: 90vw;
+            max-height: 90vw;
+        }
+
+        .app-icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 18%; /* Android Squircle approx */
+            background-color: #0B0D10;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+        }
+
+        /* Metallic Border */
+        .app-icon::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 18%;
+            border: 12px solid transparent;
+            background: linear-gradient(145deg, #9A5A24, #B87333, #5D3715, #9A5A24) border-box;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        svg {
+            width: 75%; /* Safe padding for Android adaptive cropping */
+            height: 75%;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="icon-container">
+        <div class="app-icon">
+            <svg viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- BACKGROUND (Handled by CSS, but added here for pure SVG portability) -->
+                
+                <!-- BEE GROUP -->
+                <g id="fixbee-logo">
+                    
+                    <!-- WING (Left / Back Wing) -->
+                    <!-- Large elegant wing with shadow and dual-tone fill -->
+                    <path id="wing" d="M150 350 C 100 450, 200 650, 600 550 C 700 500, 650 400, 550 380 C 450 360, 250 300, 150 350 Z" 
+                          fill="#F1D3A6" stroke="#050505" stroke-width="4" />
+                    <path d="M180 370 C 130 460, 220 620, 580 530" stroke="#050505" stroke-width="8" stroke-linecap="round" opacity="0.15" fill="none"/>
+                    
+                    <!-- INNER WING HEART DETAIL (As seen in ref) -->
+                    <path d="M260 440 C 240 480, 300 520, 450 500 C 400 480, 350 450, 260 440 Z" fill="#050505" opacity="0.05" />
+
+                    <!-- BEE BODY (Main Torso) -->
+                    <!-- Oak-brown body with Rust-orange stripes -->
+                    <path id="bee-body" d="M380 750 L 550 500 C 650 450, 750 550, 650 650 L 450 780 Z" fill="#9A5A24" />
+                    
+                    <!-- STRIPES (Rust-orange) -->
+                    <g id="stripes">
+                        <path d="M520 530 L 610 590" stroke="#C85A2A" stroke-width="50" stroke-linecap="butt" />
+                        <path d="M470 580 L 560 640" stroke="#C85A2A" stroke-width="50" stroke-linecap="butt" />
+                        <path d="M420 630 L 510 690" stroke="#C85A2A" stroke-width="50" stroke-linecap="butt" />
+                    </g>
+
+                    <!-- STINGER (Sharp point) -->
+                    <path id="stinger" d="M380 750 L 350 780 L 420 730 Z" fill="#9A5A24" />
+
+                    <!-- HEAD (Facing Right) -->
+                    <circle id="head" cx="780" cy="450" r="80" fill="#9A5A24" />
+                    
+                    <!-- HEAD HIGHLIGHT (Eye-like shape in ref) -->
+                    <ellipse cx="810" cy="430" rx="30" ry="50" transform="rotate(30, 810, 430)" fill="#0B0D10" />
+
+                    <!-- ANTENNA (Minimalist) -->
+                    <path id="antenna" d="M820 380 Q 860 300 920 350" stroke="#9A5A24" stroke-width="12" fill="none" stroke-linecap="round" />
+                    <path d="M780 380 Q 800 320 860 330" stroke="#9A5A24" stroke-width="10" fill="none" stroke-linecap="round" />
+
+                    <!-- BODY OUTLINE / SHADOWS for definition -->
+                    <path d="M380 750 L 550 500 C 650 450, 750 550, 650 650 L 450 780" stroke="#050505" stroke-width="2" opacity="0.3" fill="none" />
+                </g>
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>

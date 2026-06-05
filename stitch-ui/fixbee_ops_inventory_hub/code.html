@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.4);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#dae2fd",
+                    "surface-container": "#e5eeff",
+                    "outline-variant": "#d0c6ab",
+                    "inverse-surface": "#213145",
+                    "on-background": "#0b1c30",
+                    "surface": "#f8f9ff",
+                    "on-primary-container": "#705e00",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#00458e",
+                    "error": "#ba1a1a",
+                    "on-surface": "#0b1c30",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-container": "#575e75",
+                    "primary-container": "#ffd700",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "primary-fixed": "#ffe16d",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary-fixed": "#221b00",
+                    "primary": "#705d00",
+                    "primary-fixed-dim": "#e9c400",
+                    "on-tertiary-fixed": "#131b2e",
+                    "tertiary-container": "#d2d9f4",
+                    "background": "#f8f9ff",
+                    "secondary": "#005cba",
+                    "surface-container-high": "#dce9ff",
+                    "surface-tint": "#705d00",
+                    "on-secondary-fixed": "#001b3e",
+                    "surface-container-low": "#eff4ff",
+                    "outline": "#7e775f",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-container": "#5095fe",
+                    "inverse-primary": "#e9c400",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "tertiary": "#565e74",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed": "#d7e3ff",
+                    "on-surface-variant": "#4d4732",
+                    "on-secondary-container": "#002d61",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#aac7ff",
+                    "on-primary-fixed-variant": "#544600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "technical-data": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "technical-data": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 docked full-width top-0 sticky z-50 flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container-high/50 transition-colors p-2 rounded-full Active: scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">Inventory Hub</h1>
+</div>
+<button class="text-primary hover:bg-surface-container-high/50 transition-colors p-2 rounded-full Active: scale-95 duration-100 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+</header>
+<main class="max-w-container-max mx-auto">
+<!-- Search & Filter -->
+<section class="px-margin-mobile mt-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all font-body-lg text-body-lg" placeholder="Search components (e.g., iPhone 15 Screen)" type="text"/>
+</div>
+<div class="flex gap-2 mt-4 overflow-x-auto hide-scrollbar pb-2">
+<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-caps text-label-caps whitespace-nowrap shadow-sm">ALL PARTS</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant rounded-full font-label-caps text-label-caps whitespace-nowrap border border-outline-variant/30 hover:bg-surface-container-high transition-colors">SCREENS</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant rounded-full font-label-caps text-label-caps whitespace-nowrap border border-outline-variant/30 hover:bg-surface-container-high transition-colors">BATTERIES</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant rounded-full font-label-caps text-label-caps whitespace-nowrap border border-outline-variant/30 hover:bg-surface-container-high transition-colors">LOGIC BOARDS</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant rounded-full font-label-caps text-label-caps whitespace-nowrap border border-outline-variant/30 hover:bg-surface-container-high transition-colors">SMALL PARTS</button>
+</div>
+</section>
+<!-- Critical Stock Alerts -->
+<section class="mt-8 px-margin-mobile">
+<div class="flex justify-between items-end mb-4">
+<h2 class="font-title-md text-title-md text-on-surface">Critical Stock Alerts</h2>
+<span class="font-label-caps text-label-caps text-error font-bold px-2 py-0.5 bg-error-container rounded">8 URGENT</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar -mx-margin-mobile px-margin-mobile pb-4">
+<!-- Out of Stock Item -->
+<div class="min-w-[280px] p-4 rounded-xl border-l-4 border-error bg-surface-container-lowest shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-caps text-[10px] text-error mb-1">OUT OF STOCK</p>
+<h3 class="font-title-md text-title-md leading-tight">iPhone 14 OLED Screen</h3>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="inventory_2">inventory_2</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-technical-data text-technical-data text-on-surface-variant">Req: 12 pending repairs</span>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-caps text-label-caps hover:brightness-110 active:scale-95 transition-all">ORDER NOW</button>
+</div>
+</div>
+<!-- Low Stock Item -->
+<div class="min-w-[280px] p-4 rounded-xl border-l-4 border-primary bg-surface-container-lowest shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-caps text-[10px] text-primary mb-1">LOW STOCK (3 LEFT)</p>
+<h3 class="font-title-md text-title-md leading-tight">MacBook Air M2 Batt</h3>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="battery_charging_full">battery_charging_full</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-technical-data text-technical-data text-on-surface-variant">Avg usage: 4/week</span>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-caps text-label-caps hover:brightness-110 active:scale-95 transition-all">RESTOCK</button>
+</div>
+</div>
+<!-- Low Stock Item 2 -->
+<div class="min-w-[280px] p-4 rounded-xl border-l-4 border-primary bg-surface-container-lowest shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-caps text-[10px] text-primary mb-1">LOW STOCK (5 LEFT)</p>
+<h3 class="font-title-md text-title-md leading-tight">S23 Ultra Charging Port</h3>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="electrical_services">electrical_services</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-technical-data text-technical-data text-on-surface-variant">Restock level: 10</span>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-caps text-label-caps hover:brightness-110 active:scale-95 transition-all">RESTOCK</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Inventory List -->
+<section class="mt-4 px-margin-mobile">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-md text-title-md text-on-surface">Full Inventory</h2>
+<button class="text-secondary font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span> SORT: A-Z
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Inventory Card 1 -->
+<div class="glass-card p-4 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="smartphone">smartphone</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md leading-tight">iPhone 15 Pro Max Screen</h3>
+<p class="font-technical-data text-technical-data text-on-surface-variant">Model: A3106 (Titanium)</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 border-y border-outline-variant/20 py-3">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">STOCK</p>
+<p class="font-technical-data text-technical-data font-bold">42 units</p>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant">COST/UNIT</p>
+<p class="font-technical-data text-technical-data font-bold">₹14,500</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="px-2 py-1 bg-secondary-container/20 text-on-secondary-container rounded font-label-caps text-[10px]">OPTIMAL</span>
+<button class="text-secondary p-1 rounded hover:bg-secondary-container/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Inventory Card 2 -->
+<div class="glass-card p-4 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="laptop">laptop</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md leading-tight">MacBook Air M2 Battery</h3>
+<p class="font-technical-data text-technical-data text-on-surface-variant">Model: A2681</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 border-y border-outline-variant/20 py-3">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">STOCK</p>
+<p class="font-technical-data text-technical-data font-bold text-primary">3 units</p>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant">COST/UNIT</p>
+<p class="font-technical-data text-technical-data font-bold">₹8,900</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="px-2 py-1 bg-primary-container text-on-primary-container rounded font-label-caps text-[10px]">LOW STOCK</span>
+<button class="text-secondary p-1 rounded hover:bg-secondary-container/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Inventory Card 3 -->
+<div class="glass-card p-4 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="memory">memory</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md leading-tight">iPad Pro M2 Motherboard</h3>
+<p class="font-technical-data text-technical-data text-on-surface-variant">Model: 12.9" Gen 6</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 border-y border-outline-variant/20 py-3">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">STOCK</p>
+<p class="font-technical-data text-technical-data font-bold text-error">0 units</p>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant">COST/UNIT</p>
+<p class="font-technical-data text-technical-data font-bold">₹28,000</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="px-2 py-1 bg-error-container text-on-error-container rounded font-label-caps text-[10px]">OUT OF STOCK</span>
+<button class="text-secondary p-1 rounded hover:bg-secondary-container/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Group -->
+<div class="fixed bottom-24 right-margin-mobile flex flex-col gap-4 z-40">
+<button class="w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+<button class="h-14 px-6 bg-primary text-on-primary rounded-full shadow-lg flex items-center gap-2 font-label-caps text-label-caps hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+            CREATE P.O.
+        </button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/90 backdrop-blur-md border-t border-outline-variant/20 shadow-[0_-4px_12px_0_rgba(0,0,0,0.05)] flex justify-around items-center h-20 pb-safe px-4">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-caps text-[10px]">OVERVIEW</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="handyman">handyman</span>
+<span class="font-label-caps text-[10px]">REPAIRS</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 mt-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-caps text-[10px]">HUB</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-caps text-[10px]">ALERTS</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for chips
+        const chips = document.querySelectorAll('.hide-scrollbar button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                    c.classList.add('bg-surface-container', 'text-on-surface-variant', 'border-outline-variant/30');
+                });
+                chip.classList.remove('bg-surface-container', 'text-on-surface-variant', 'border-outline-variant/30');
+                chip.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+            });
+        });
+    </script>
+</body></html>
